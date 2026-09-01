@@ -1,5 +1,5 @@
 /* =====================================================
-   LIVRO DIGITAL
+   LIVRO DIGITAL — VERSÃO MOBILE
 ===================================================== */
 
 
@@ -19,35 +19,20 @@ const openBook =
 const homeButton =
     document.getElementById("homeButton");
 
+const editButton =
+    document.getElementById("editButton");
+
 const previousPage =
     document.getElementById("previousPage");
 
 const nextPage =
     document.getElementById("nextPage");
 
-const mobilePrevious =
-    document.getElementById("mobilePrevious");
-
-const mobileNext =
-    document.getElementById("mobileNext");
-
-const mobilePage =
-    document.getElementById("mobilePage");
+const pageContent =
+    document.getElementById("pageContent");
 
 const pageCounter =
     document.getElementById("pageCounter");
-
-const leftContent =
-    document.getElementById("leftContent");
-
-const rightContent =
-    document.getElementById("rightContent");
-
-const leftPage =
-    document.getElementById("leftPage");
-
-const rightPage =
-    document.getElementById("rightPage");
 
 const pageDots =
     document.getElementById("pageDots");
@@ -57,9 +42,6 @@ const pageDots =
    EDITOR
 ===================================================== */
 
-const editButton =
-    document.getElementById("editButton");
-
 const editorPanel =
     document.getElementById("editorPanel");
 
@@ -68,9 +50,6 @@ const closeEditor =
 
 const chapterSelect =
     document.getElementById("chapterSelect");
-
-const addPage =
-    document.getElementById("addPage");
 
 const titleInput =
     document.getElementById("titleInput");
@@ -96,6 +75,9 @@ const videoInput =
 const mediaPreview =
     document.getElementById("mediaPreview");
 
+const addPage =
+    document.getElementById("addPage");
+
 const savePage =
     document.getElementById("savePage");
 
@@ -115,134 +97,149 @@ const closeViewer =
 
 
 /* =====================================================
-   DADOS INICIAIS
+   PÁGINAS
 ===================================================== */
 
-const defaultChapters = [
+let chapters = [
 
     {
         id: "intro",
 
         title: "Antes de tudo...",
 
-        subtitle: "Uma pequena introdução",
+        subtitle:
+            "Uma pequena introdução",
 
         text:
-            "Existem momentos que passam rápido demais para serem guardados apenas na memória.\n\n" +
-            "Por isso eu quis criar este pequeno livro.\n\n" +
-            "Cada página aqui foi feita para guardar um pedacinho de carinho, de lembranças e de pessoas que fazem parte da sua história."
+`Existem momentos que passam rápido demais para serem guardados apenas na memória.
+
+Por isso eu quis criar este pequeno livro.
+
+Cada página aqui foi feita para guardar um pedacinho de carinho, lembranças e pessoas que fazem parte da sua história.`,
+
+        media: []
     },
 
 
     {
         id: "mom",
 
-        title: "Uma mensagem da mãe",
+        title:
+            "Uma mensagem da mãe",
 
         subtitle:
             "Amor que começou antes mesmo de você chegar",
 
         text:
-            "Parece que foi ontem que eu te segurei nos braços pela primeira vez, e chorei muito pq achei q não ia conseguir te criar direto.\n\n" +
+`Parece que foi ontem que eu te segurei nos braços pela primeira vez, e chorei muito pq achei q não ia conseguir te criar direto.
 
-            "O tempo passou voando, e hoje vc completa 18 anos. Olho para trás e vejo o quanto você cresceu. E hj sinto um orgulho enorme da mulher incrível que você está se tornando, forte, inteligente, sensível, chorona e cheia de alegria.\n\n" +
+O tempo passou voando, e hoje vc completa 18 anos. Olho para trás e vejo o quanto você cresceu. E hj sinto um orgulho enorme da mulher incrível que você está se tornando, forte, inteligente, sensível, chorona e cheia de alegria.
 
-            "A maioridade chegou, trazendo novos sonhos, escolhas e caminhos. Quero que você saiba que, não importa o tamanho do mundo ou a distância que você decida voar, eu sempre serei o seu porto seguro. Sempre pode contar comigo.\n\n" +
+A maioridade chegou, trazendo novos sonhos, escolhas e caminhos. Quero que você saiba que, não importa o tamanho do mundo ou a distância que você decida voar, eu sempre serei o seu porto seguro. Sempre pode contar comigo.
 
-            "Te amo muito muito, vc sempre vai ser o meu bb ❤️\n\n" +
+Te amo muito muito, vc sempre vai ser o meu bb ❤️
 
-            "Agora bora comprar um Civic no seu CPF kkkkkkk"
+Agora bora comprar um Civic no seu CPF kkkkkkk`,
+
+        media: []
     },
 
 
     {
         id: "friend1",
 
-        title: "Uma mensagem de alguém especial",
+        title:
+            "Uma mensagem especial",
 
         subtitle:
-            "Porque algumas amizades viram família",
+            "De alguém que faz parte dessa história",
 
         text:
-            "Aqui vai entrar a mensagem da sua amiga.\n\n" +
-            "Quando ela mandar a mensagem, você pode substituir este texto pelo que ela escreveu."
+`Essa página está esperando uma mensagem especial.
+
+Quando sua amiga mandar o texto, você pode colocar aqui.`,
+
+        media: []
     },
 
 
     {
         id: "friend2",
 
-        title: "Mais uma lembrança",
+        title:
+            "Mais uma lembrança",
 
         subtitle:
-            "Um pedacinho dessa história",
+            "Porque algumas amizades viram família",
 
         text:
-            "Aqui vai entrar a mensagem da outra amiga.\n\n" +
-            "Essa página pode receber fotos, vídeos e tudo aquilo que vocês quiserem guardar."
+`Aqui vai entrar outra mensagem.
+
+Também dá para colocar fotos e vídeos dessa pessoa.`,
+
+        media: []
     },
 
 
     {
         id: "stepfather",
 
-        title: "Uma mensagem especial",
+        title:
+            "Uma mensagem especial",
 
         subtitle:
-            "De alguém que também faz parte dessa história",
+            "De alguém importante na sua história",
 
         text:
-            "Aqui vai entrar a mensagem do padrasto.\n\n" +
-            "Você poderá colocar aqui a mensagem e as fotos que ele quiser."
+`Essa página está reservada para uma mensagem especial.`,
+
+        media: []
     },
 
 
     {
         id: "me",
 
-        title: "De mim para você",
+        title:
+            "De mim para você",
 
         subtitle:
             "Agora é a minha vez",
 
         text:
-            "Aqui vai a sua mensagem.\n\n" +
-            "Essa pode ser uma das partes mais importantes do livro.\n\n" +
-            "Você pode escrever quantas coisas quiser, colocar fotos de vocês, vídeos, histórias engraçadas, momentos especiais e tudo aquilo que quiser dizer."
+`Aqui vai ficar a minha mensagem.
+
+Essa página pode ter fotos nossas, vídeos, histórias, lembranças e tudo aquilo que eu ainda quero te dizer.
+
+❤️`,
+
+        media: []
     },
 
 
     {
         id: "final",
 
-        title: "E essa história continua...",
+        title:
+            "E essa história continua...",
 
         subtitle:
             "O melhor ainda está por vir",
 
         text:
-            "Se chegamos até aqui, é porque já existe muita coisa bonita para lembrar.\n\n" +
+`Se chegamos até aqui, é porque já existe muita coisa bonita para lembrar.
 
-            "Mas esse livro não termina nessa página.\n\n" +
+Mas esse livro não termina nessa página.
 
-            "Porque ainda existem muitos momentos que a gente não viveu.\n\n" +
+Ainda existem muitos momentos que a gente não viveu.
 
-            "Feliz aniversário, meu amor. ❤️"
+Feliz aniversário, meu amor. ❤️`,
+
+        media: []
     }
 
 ];
 
-
-/* =====================================================
-   CAPÍTULOS
-===================================================== */
-
-let chapters = [];
-
-
-/* =====================================================
-   PÁGINA ATUAL
-===================================================== */
 
 let currentPage = 0;
 
@@ -254,184 +251,61 @@ let currentPage = 0;
 let database = null;
 
 
-/* =====================================================
-   ID ÚNICO
-===================================================== */
-
-function generateId() {
-
-    return (
-        "page_" +
-        Date.now() +
-        "_" +
-        Math.random()
-            .toString(36)
-            .substring(2, 9)
-    );
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-function isMobile() {
-
-    return window.innerWidth <= 800;
-
-}
-
-
-/* =====================================================
-   CARREGAR CAPÍTULOS
-===================================================== */
-
-function loadChapters() {
-
-    const saved =
-        localStorage.getItem(
-            "livroSurpresaChapters"
-        );
-
-
-    if (!saved) {
-
-        chapters =
-            defaultChapters.map(
-                chapter => ({
-                    ...chapter
-                })
-            );
-
-        saveChapters();
-
-        return;
-    }
-
-
-    try {
-
-        const parsed =
-            JSON.parse(saved);
-
-
-        if (
-            Array.isArray(parsed) &&
-            parsed.length > 0
-        ) {
-
-            chapters = parsed;
-
-        } else {
-
-            chapters =
-                defaultChapters.map(
-                    chapter => ({
-                        ...chapter
-                    })
-                );
-
-        }
-
-    } catch (error) {
-
-        console.error(
-            "Erro ao carregar páginas:",
-            error
-        );
-
-
-        chapters =
-            defaultChapters.map(
-                chapter => ({
-                    ...chapter
-                })
-            );
-
-    }
-
-}
-
-
-/* =====================================================
-   SALVAR CAPÍTULOS
-===================================================== */
-
-function saveChapters() {
-
-    localStorage.setItem(
-        "livroSurpresaChapters",
-        JSON.stringify(chapters)
-    );
-
-}
-
-
-/* =====================================================
-   BANCO INDEXEDDB
-===================================================== */
-
 function openDatabase() {
 
-    return new Promise(
-        (resolve, reject) => {
+    return new Promise((resolve, reject) => {
 
-            const request =
-                indexedDB.open(
-                    "LivroSurpresaDB",
-                    2
+        const request =
+            indexedDB.open(
+                "LivroSurpresaMobile",
+                1
+            );
+
+
+        request.onupgradeneeded = event => {
+
+            const db =
+                event.target.result;
+
+
+            if (
+                !db.objectStoreNames.contains(
+                    "media"
+                )
+            ) {
+
+                db.createObjectStore(
+                    "media",
+                    {
+                        keyPath: "id",
+                        autoIncrement: true
+                    }
                 );
 
+            }
 
-            request.onupgradeneeded =
-                event => {
-
-                    const db =
-                        event.target.result;
+        };
 
 
-                    if (
-                        !db.objectStoreNames.contains(
-                            "media"
-                        )
-                    ) {
+        request.onsuccess = event => {
 
-                        db.createObjectStore(
-                            "media",
-                            {
-                                keyPath: "id",
-                                autoIncrement: true
-                            }
-                        );
+            database =
+                event.target.result;
 
-                    }
+            resolve(database);
 
-                };
+        };
 
 
-            request.onsuccess =
-                event => {
+        request.onerror = () => {
 
-                    database =
-                        event.target.result;
+            reject(
+                request.error
+            );
 
-                    resolve(database);
+        };
 
-                };
-
-
-            request.onerror =
-                () => {
-
-                    reject(
-                        request.error
-                    );
-
-                };
-
-        }
-    );
+    });
 
 }
 
@@ -452,7 +326,7 @@ function saveMedia(
 
                 reject(
                     new Error(
-                        "Banco de mídia indisponível."
+                        "Banco de dados indisponível."
                     )
                 );
 
@@ -463,7 +337,7 @@ function saveMedia(
 
             const transaction =
                 database.transaction(
-                    ["media"],
+                    "media",
                     "readwrite"
                 );
 
@@ -492,23 +366,15 @@ function saveMedia(
 
 
             request.onsuccess =
-                () => {
-
-                    resolve(
-                        request.result
-                    );
-
-                };
+                () => resolve(
+                    request.result
+                );
 
 
             request.onerror =
-                () => {
-
-                    reject(
-                        request.error
-                    );
-
-                };
+                () => reject(
+                    request.error
+                );
 
         }
     );
@@ -517,10 +383,10 @@ function saveMedia(
 
 
 /* =====================================================
-   PEGAR MÍDIAS
+   BUSCAR MÍDIA
 ===================================================== */
 
-function getChapterMedia(
+function getMedia(
     chapterId
 ) {
 
@@ -538,7 +404,7 @@ function getChapterMedia(
 
             const transaction =
                 database.transaction(
-                    ["media"],
+                    "media",
                     "readonly"
                 );
 
@@ -556,27 +422,21 @@ function getChapterMedia(
             request.onsuccess =
                 () => {
 
-                    const result =
+                    resolve(
                         request.result.filter(
                             item =>
                                 item.chapterId ===
                                 chapterId
-                        );
-
-
-                    resolve(result);
+                        )
+                    );
 
                 };
 
 
             request.onerror =
-                () => {
-
-                    reject(
-                        request.error
-                    );
-
-                };
+                () => reject(
+                    request.error
+                );
 
         }
     );
@@ -585,59 +445,61 @@ function getChapterMedia(
 
 
 /* =====================================================
-   ATUALIZAR SELECT
+   SALVAR PÁGINAS
 ===================================================== */
 
-function updateChapterSelect() {
+function saveChapters() {
 
-    const currentId =
-        chapterSelect.value;
-
-
-    chapterSelect.innerHTML = "";
-
-
-    chapters.forEach(
-        (chapter, index) => {
-
-            const option =
-                document.createElement(
-                    "option"
-                );
-
-
-            option.value =
-                chapter.id;
-
-
-            option.textContent =
-                `${index + 1}. ${chapter.title || "Sem título"}`;
-
-
-            chapterSelect.appendChild(
-                option
-            );
-
-        }
+    localStorage.setItem(
+        "livroSurpresaCapitulos",
+        JSON.stringify(
+            chapters
+        )
     );
 
+}
 
-    const exists =
-        chapters.some(
-            chapter =>
-                chapter.id === currentId
+
+/* =====================================================
+   CARREGAR PÁGINAS
+===================================================== */
+
+function loadChapters() {
+
+    const saved =
+        localStorage.getItem(
+            "livroSurpresaCapitulos"
         );
 
 
-    if (exists) {
+    if (!saved) {
 
-        chapterSelect.value =
-            currentId;
+        return;
 
-    } else if (chapters.length > 0) {
+    }
 
-        chapterSelect.value =
-            chapters[0].id;
+
+    try {
+
+        const parsed =
+            JSON.parse(saved);
+
+
+        if (
+            Array.isArray(parsed) &&
+            parsed.length > 0
+        ) {
+
+            chapters =
+                parsed;
+
+        }
+
+    } catch (error) {
+
+        console.log(
+            "Não foi possível carregar as páginas."
+        );
 
     }
 
@@ -655,16 +517,31 @@ function escapeHTML(text) {
             "div"
         );
 
-
     div.textContent =
         text || "";
 
+    return div.innerHTML;
 
-    return div.innerHTML
-        .replace(
-            /\n/g,
-            "<br>"
-        );
+}
+
+
+/* =====================================================
+   FORMATAR TEXTO
+===================================================== */
+
+function formatText(text) {
+
+    return escapeHTML(
+        text || ""
+    )
+    .replace(
+        /\n\s*\n/g,
+        "</p><p>"
+    )
+    .replace(
+        /\n/g,
+        "<br>"
+    );
 
 }
 
@@ -673,159 +550,89 @@ function escapeHTML(text) {
    RENDERIZAR LIVRO
 ===================================================== */
 
-async function renderBook() {
-
-    if (
-        chapters.length === 0
-    ) {
-
-        return;
-
-    }
-
-
-    if (
-        currentPage >=
-        chapters.length
-    ) {
-
-        currentPage =
-            Math.max(
-                0,
-                chapters.length - 1
-            );
-
-    }
-
-
-    if (isMobile()) {
-
-        const current =
-            chapters[currentPage];
-
-
-        await renderSinglePage(
-            current,
-            rightContent
-        );
-
-
-        leftContent.innerHTML =
-            "";
-
-
-        leftPage.style.display =
-            "none";
-
-
-        rightPage.style.display =
-            "block";
-
-    } else {
-
-        leftPage.style.display =
-            "block";
-
-
-        rightPage.style.display =
-            "block";
-
-
-        const leftChapter =
-            chapters[currentPage];
-
-
-        const rightChapter =
-            chapters[currentPage + 1];
-
-
-        if (leftChapter) {
-
-            await renderSinglePage(
-                leftChapter,
-                leftContent
-            );
-
-        } else {
-
-            leftContent.innerHTML =
-                "";
-
-        }
-
-
-        if (rightChapter) {
-
-            await renderSinglePage(
-                rightChapter,
-                rightContent
-            );
-
-        } else {
-
-            rightContent.innerHTML =
-                "";
-
-        }
-
-    }
-
-
-    updateControls();
-
-}
-
-
-/* =====================================================
-   RENDERIZAR PÁGINA
-===================================================== */
-
-async function renderSinglePage(
-    chapter,
-    container
+async function renderBook(
+    direction = "normal"
 ) {
+
+    const chapter =
+        chapters[currentPage];
+
 
     if (!chapter) {
 
-        container.innerHTML =
-            "";
-
         return;
 
     }
 
 
-    const text =
-        chapter.text || "";
+    pageContent.innerHTML = "";
 
 
     const media =
-        await getChapterMedia(
+        await getMedia(
             chapter.id
         );
 
 
-    let html = `
+    const isSpecial =
+        chapter.id === "me" ||
+        chapter.id === "final";
 
-        <div class="chapter-label">
-            ${escapeHTML(
-                chapter.subtitle ||
-                ""
-            )}
-        </div>
 
-        <h1 class="page-heading">
-            ${escapeHTML(
-                chapter.title ||
-                "Sem título"
-            )}
-        </h1>
+    let html = "";
 
-        <div class="page-text">
-            ${escapeHTML(text)}
-        </div>
 
-    `;
+    if (isSpecial) {
+
+        html += `
+
+            <div class="special-page">
+
+                <div class="special-heart">
+                    ❤️
+                </div>
+
+                <div class="chapter-label">
+                    ${escapeHTML(chapter.subtitle)}
+                </div>
+
+                <h2>
+                    ${escapeHTML(chapter.title)}
+                </h2>
+
+                <p>
+                    ${formatText(chapter.text)}
+                </p>
+
+            </div>
+
+        `;
+
+    } else {
+
+        html += `
+
+            <div class="chapter-label">
+                ${escapeHTML(chapter.subtitle)}
+            </div>
+
+            <h1 class="page-heading">
+                ${escapeHTML(chapter.title)}
+            </h1>
+
+            <div class="page-subtitle">
+                ${escapeHTML(chapter.subtitle)}
+            </div>
+
+            <div class="page-text">
+                <p>
+                    ${formatText(chapter.text)}
+                </p>
+            </div>
+
+        `;
+
+    }
 
 
     if (media.length > 0) {
@@ -835,65 +642,62 @@ async function renderSinglePage(
         `;
 
 
-        media.forEach(
-            item => {
+        media.forEach(item => {
 
-                const url =
-                    URL.createObjectURL(
-                        item.blob
-                    );
+            const url =
+                URL.createObjectURL(
+                    item.blob
+                );
 
 
-                if (
-                    item.type.startsWith(
-                        "image/"
-                    )
-                ) {
+            if (
+                item.type.startsWith(
+                    "image/"
+                )
+            ) {
 
-                    html += `
+                html += `
 
-                        <div
-                            class="book-photo"
-                            data-image="${url}"
+                    <div
+                        class="book-photo"
+                        data-image="${url}"
+                    >
+
+                        <img
+                            src="${url}"
+                            alt="Lembrança"
                         >
 
-                            <img
-                                src="${url}"
-                                alt="Lembrança"
-                            >
+                    </div>
 
-                        </div>
-
-                    `;
-
-                }
-
-
-                else if (
-                    item.type.startsWith(
-                        "video/"
-                    )
-                ) {
-
-                    html += `
-
-                        <div class="book-video">
-
-                            <video
-                                src="${url}"
-                                controls
-                                playsinline
-                                preload="metadata">
-                            </video>
-
-                        </div>
-
-                    `;
-
-                }
+                `;
 
             }
-        );
+
+
+            if (
+                item.type.startsWith(
+                    "video/"
+                )
+            ) {
+
+                html += `
+
+                    <div class="book-video">
+
+                        <video
+                            src="${url}"
+                            controls
+                            playsinline
+                        ></video>
+
+                    </div>
+
+                `;
+
+            }
+
+        });
 
 
         html += `
@@ -903,43 +707,34 @@ async function renderSinglePage(
     }
 
 
-    html += `
-
-        <div class="page-number">
-            ✦
-        </div>
-
-    `;
-
-
-    container.innerHTML =
+    pageContent.innerHTML =
         html;
 
 
-    container
+    pageContent
         .querySelectorAll(
             ".book-photo"
         )
-        .forEach(
-            photo => {
+        .forEach(photo => {
 
-                photo.addEventListener(
-                    "click",
-                    () => {
+            photo.addEventListener(
+                "click",
+                () => {
 
-                        viewerImage.src =
-                            photo.dataset.image;
+                    viewerImage.src =
+                        photo.dataset.image;
+
+                    photoViewer.classList.remove(
+                        "hidden"
+                    );
+
+                }
+            );
+
+        });
 
 
-                        photoViewer.classList.remove(
-                            "hidden"
-                        );
-
-                    }
-                );
-
-            }
-        );
+    updateControls();
 
 }
 
@@ -958,20 +753,13 @@ function updateControls() {
         `Página ${currentPage + 1} de ${total}`;
 
 
-    mobilePage.textContent =
-        `${currentPage + 1} / ${total}`;
-
-
     previousPage.disabled =
-        currentPage <= 0;
-
-
-    const step =
-        isMobile() ? 1 : 2;
+        currentPage === 0;
 
 
     nextPage.disabled =
-        currentPage + step >= total;
+        currentPage >=
+        total - 1;
 
 
     renderDots();
@@ -985,8 +773,7 @@ function updateControls() {
 
 function renderDots() {
 
-    pageDots.innerHTML =
-        "";
+    pageDots.innerHTML = "";
 
 
     chapters.forEach(
@@ -1029,13 +816,9 @@ function renderDots() {
 
 function goNext() {
 
-    const step =
-        isMobile() ? 1 : 2;
-
-
     if (
-        currentPage + step >=
-        chapters.length
+        currentPage >=
+        chapters.length - 1
     ) {
 
         return;
@@ -1043,9 +826,7 @@ function goNext() {
     }
 
 
-    currentPage +=
-        step;
-
+    currentPage++;
 
     renderBook();
 
@@ -1058,10 +839,6 @@ function goNext() {
 
 function goPrevious() {
 
-    const step =
-        isMobile() ? 1 : 2;
-
-
     if (
         currentPage <= 0
     ) {
@@ -1071,12 +848,7 @@ function goPrevious() {
     }
 
 
-    currentPage =
-        Math.max(
-            0,
-            currentPage - step
-        );
-
+    currentPage--;
 
     renderBook();
 
@@ -1095,14 +867,11 @@ openBook.addEventListener(
             "hidden"
         );
 
-
         book.classList.remove(
             "hidden"
         );
 
-
         currentPage = 0;
-
 
         renderBook();
 
@@ -1122,7 +891,6 @@ homeButton.addEventListener(
             "hidden"
         );
 
-
         cover.classList.remove(
             "hidden"
         );
@@ -1132,7 +900,7 @@ homeButton.addEventListener(
 
 
 /* =====================================================
-   NAVEGAÇÃO
+   BOTÕES
 ===================================================== */
 
 nextPage.addEventListener(
@@ -1145,22 +913,13 @@ previousPage.addEventListener(
     goPrevious
 );
 
-mobileNext.addEventListener(
-    "click",
-    goNext
-);
-
-mobilePrevious.addEventListener(
-    "click",
-    goPrevious
-);
-
 
 /* =====================================================
    SWIPE
 ===================================================== */
 
 let touchStartX = 0;
+let touchStartY = 0;
 
 
 document.addEventListener(
@@ -1178,9 +937,15 @@ document.addEventListener(
         }
 
 
+        const touch =
+            event.changedTouches[0];
+
+
         touchStartX =
-            event.changedTouches[0]
-                .screenX;
+            touch.screenX;
+
+        touchStartY =
+            touch.screenY;
 
     },
     {
@@ -1204,18 +969,23 @@ document.addEventListener(
         }
 
 
-        const touchEndX =
-            event.changedTouches[0]
-                .screenX;
+        const touch =
+            event.changedTouches[0];
 
 
-        const difference =
-            touchEndX -
+        const differenceX =
+            touch.screenX -
             touchStartX;
 
 
+        const differenceY =
+            touch.screenY -
+            touchStartY;
+
+
         if (
-            Math.abs(difference) < 60
+            Math.abs(differenceX) <
+            60
         ) {
 
             return;
@@ -1223,7 +993,19 @@ document.addEventListener(
         }
 
 
-        if (difference < 0) {
+        if (
+            Math.abs(differenceX) <
+            Math.abs(differenceY)
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            differenceX < 0
+        ) {
 
             goNext();
 
@@ -1241,58 +1023,7 @@ document.addEventListener(
 
 
 /* =====================================================
-   TECLADO
-===================================================== */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            book.classList.contains(
-                "hidden"
-            )
-        ) {
-
-            return;
-
-        }
-
-
-        if (
-            event.key === "ArrowRight"
-        ) {
-
-            goNext();
-
-        }
-
-
-        if (
-            event.key === "ArrowLeft"
-        ) {
-
-            goPrevious();
-
-        }
-
-
-        if (
-            event.key === "Escape"
-        ) {
-
-            editorPanel.classList.add(
-                "hidden"
-            );
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   ABRIR EDITOR
+   EDITOR
 ===================================================== */
 
 editButton.addEventListener(
@@ -1301,27 +1032,34 @@ editButton.addEventListener(
 );
 
 
-async function openEditor() {
-
-    updateChapterSelect();
-
-
-    const current =
-        chapters[currentPage];
+closeEditor.addEventListener(
+    "click",
+    closeEditorPanel
+);
 
 
-    if (current) {
-
-        chapterSelect.value =
-            current.id;
-
-    }
-
-
-    await loadChapterIntoEditor();
-
+function openEditor() {
 
     editorPanel.classList.remove(
+        "hidden"
+    );
+
+
+    populateChapterSelect();
+
+
+    chapterSelect.value =
+        chapters[currentPage].id;
+
+
+    loadEditorPage();
+
+}
+
+
+function closeEditorPanel() {
+
+    editorPanel.classList.add(
         "hidden"
     );
 
@@ -1329,45 +1067,58 @@ async function openEditor() {
 
 
 /* =====================================================
-   FECHAR EDITOR
+   SELECT DE PÁGINAS
 ===================================================== */
 
-closeEditor.addEventListener(
-    "click",
-    () => {
+function populateChapterSelect() {
 
-        editorPanel.classList.add(
-            "hidden"
-        );
-
-    }
-);
+    chapterSelect.innerHTML = "";
 
 
-/* =====================================================
-   TROCAR PÁGINA NO EDITOR
-===================================================== */
+    chapters.forEach(
+        (chapter, index) => {
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+
+            option.value =
+                chapter.id;
+
+
+            option.textContent =
+                `${index + 1}. ${chapter.title}`;
+
+
+            chapterSelect.appendChild(
+                option
+            );
+
+        }
+    );
+
+}
+
 
 chapterSelect.addEventListener(
     "change",
-    loadChapterIntoEditor
+    loadEditorPage
 );
 
 
 /* =====================================================
-   CARREGAR PÁGINA NO EDITOR
+   CARREGAR EDITOR
 ===================================================== */
 
-async function loadChapterIntoEditor() {
-
-    const id =
-        chapterSelect.value;
-
+async function loadEditorPage() {
 
     const chapter =
         chapters.find(
             item =>
-                item.id === id
+                item.id ===
+                chapterSelect.value
         );
 
 
@@ -1398,85 +1149,7 @@ async function loadChapterIntoEditor() {
 
 
 /* =====================================================
-   CRIAR NOVA PÁGINA
-===================================================== */
-
-addPage.addEventListener(
-    "click",
-    () => {
-
-        const newChapter = {
-
-            id:
-                generateId(),
-
-            title:
-                "Nova página",
-
-            subtitle:
-                "Uma nova lembrança",
-
-            text:
-                "Escreva aqui o que quiser..."
-
-        };
-
-
-        chapters.push(
-            newChapter
-        );
-
-
-        saveChapters();
-
-
-        updateChapterSelect();
-
-
-        chapterSelect.value =
-            newChapter.id;
-
-
-        titleInput.value =
-            newChapter.title;
-
-
-        subtitleInput.value =
-            newChapter.subtitle;
-
-
-        messageInput.value =
-            newChapter.text;
-
-
-        mediaPreview.innerHTML = `
-
-            <div
-                style="
-                    grid-column:1/-1;
-                    color:#756b76;
-                    font-family:Arial;
-                    font-size:11px;
-                    text-align:center;
-                    padding:20px;
-                "
-            >
-                Nenhuma foto ou vídeo ainda.
-            </div>
-
-        `;
-
-
-        alert(
-            "Nova página criada! ❤️"
-        );
-
-    }
-);
-
-
-/* =====================================================
-   ESCOLHER FOTO
+   FOTO
 ===================================================== */
 
 choosePhoto.addEventListener(
@@ -1488,24 +1161,6 @@ choosePhoto.addEventListener(
     }
 );
 
-
-/* =====================================================
-   ESCOLHER VÍDEO
-===================================================== */
-
-chooseVideo.addEventListener(
-    "click",
-    () => {
-
-        videoInput.click();
-
-    }
-);
-
-
-/* =====================================================
-   FOTO
-===================================================== */
 
 photoInput.addEventListener(
     "change",
@@ -1521,32 +1176,14 @@ photoInput.addEventListener(
             chapterSelect.value;
 
 
-        if (!chapterId) {
-
-            return;
-
-        }
-
-
         for (
             const file of files
         ) {
 
-            try {
-
-                await saveMedia(
-                    chapterId,
-                    file
-                );
-
-            } catch (error) {
-
-                console.error(
-                    "Erro ao salvar foto:",
-                    error
-                );
-
-            }
+            await saveMedia(
+                chapterId,
+                file
+            );
 
         }
 
@@ -1556,8 +1193,7 @@ photoInput.addEventListener(
         );
 
 
-        photoInput.value =
-            "";
+        photoInput.value = "";
 
     }
 );
@@ -1566,6 +1202,16 @@ photoInput.addEventListener(
 /* =====================================================
    VÍDEO
 ===================================================== */
+
+chooseVideo.addEventListener(
+    "click",
+    () => {
+
+        videoInput.click();
+
+    }
+);
+
 
 videoInput.addEventListener(
     "change",
@@ -1581,32 +1227,14 @@ videoInput.addEventListener(
             chapterSelect.value;
 
 
-        if (!chapterId) {
-
-            return;
-
-        }
-
-
         for (
             const file of files
         ) {
 
-            try {
-
-                await saveMedia(
-                    chapterId,
-                    file
-                );
-
-            } catch (error) {
-
-                console.error(
-                    "Erro ao salvar vídeo:",
-                    error
-                );
-
-            }
+            await saveMedia(
+                chapterId,
+                file
+            );
 
         }
 
@@ -1616,8 +1244,7 @@ videoInput.addEventListener(
         );
 
 
-        videoInput.value =
-            "";
+        videoInput.value = "";
 
     }
 );
@@ -1631,12 +1258,11 @@ async function renderMediaPreview(
     chapterId
 ) {
 
-    mediaPreview.innerHTML =
-        "";
+    mediaPreview.innerHTML = "";
 
 
     const media =
-        await getChapterMedia(
+        await getMedia(
             chapterId
         );
 
@@ -1650,14 +1276,14 @@ async function renderMediaPreview(
             <div
                 style="
                     grid-column:1/-1;
-                    color:#756b76;
-                    font-family:Arial;
-                    font-size:11px;
                     text-align:center;
-                    padding:20px;
+                    padding:15px;
+                    color:#716673;
+                    font-family:Arial;
+                    font-size:10px;
                 "
             >
-                Nenhuma foto ou vídeo ainda.
+                Nenhuma mídia adicionada.
             </div>
 
         `;
@@ -1667,66 +1293,58 @@ async function renderMediaPreview(
     }
 
 
-    media.forEach(
-        item => {
+    media.forEach(item => {
 
-            const preview =
-                document.createElement(
-                    "div"
-                );
-
-
-            preview.className =
-                "preview-item";
-
-
-            if (
-                item.type.startsWith(
-                    "image/"
-                )
-            ) {
-
-                const image =
-                    document.createElement(
-                        "img"
-                    );
-
-
-                image.src =
-                    URL.createObjectURL(
-                        item.blob
-                    );
-
-
-                preview.appendChild(
-                    image
-                );
-
-            } else {
-
-                const icon =
-                    document.createElement(
-                        "span"
-                    );
-
-
-                icon.textContent =
-                    "🎥";
-
-
-                preview.appendChild(
-                    icon
-                );
-
-            }
-
-
-            mediaPreview.appendChild(
-                preview
+        const element =
+            document.createElement(
+                "div"
             );
 
+
+        element.className =
+            "preview-item";
+
+
+        if (
+            item.type.startsWith(
+                "image/"
+            )
+        ) {
+
+            const img =
+                document.createElement(
+                    "img"
+                );
+
+
+            img.src =
+                URL.createObjectURL(
+                    item.blob
+                );
+
+
+            element.appendChild(
+                img
+            );
+
+        } else {
+
+            element.innerHTML = `
+
+                <div class="preview-video">
+                    🎥
+                </div>
+
+            `;
+
         }
-    );
+
+
+        mediaPreview.appendChild(
+            element
+        );
+
+    });
 
 }
 
@@ -1764,7 +1382,7 @@ savePage.addEventListener(
 
         chapter.subtitle =
             subtitleInput.value.trim() ||
-            "";
+            "Uma lembrança especial";
 
 
         chapter.text =
@@ -1774,41 +1392,83 @@ savePage.addEventListener(
         saveChapters();
 
 
-        const index =
+        currentPage =
             chapters.findIndex(
                 item =>
                     item.id === id
             );
 
 
-        if (index >= 0) {
-
-            currentPage =
-                isMobile()
-                    ? index
-                    : Math.floor(
-                        index / 2
-                    ) * 2;
-
-        }
-
-
-        updateChapterSelect();
-
+        closeEditorPanel();
 
         await renderBook();
-
-
-        editorPanel.classList.add(
-            "hidden"
-        );
 
     }
 );
 
 
 /* =====================================================
-   VISUALIZADOR
+   CRIAR NOVA PÁGINA
+===================================================== */
+
+addPage.addEventListener(
+    "click",
+    () => {
+
+        const newId =
+            "page_" +
+            Date.now();
+
+
+        const newChapter = {
+
+            id:
+                newId,
+
+            title:
+                "Nova página",
+
+            subtitle:
+                "Uma nova lembrança",
+
+            text:
+                "Escreva aqui o que quiser guardar nesta página.",
+
+            media: []
+
+        };
+
+
+        chapters.push(
+            newChapter
+        );
+
+
+        saveChapters();
+
+
+        currentPage =
+            chapters.length - 1;
+
+
+        populateChapterSelect();
+
+
+        chapterSelect.value =
+            newId;
+
+
+        loadEditorPage();
+
+
+        renderBook();
+
+    }
+);
+
+
+/* =====================================================
+   FECHAR FOTO
 ===================================================== */
 
 closeViewer.addEventListener(
@@ -1819,8 +1479,7 @@ closeViewer.addEventListener(
             "hidden"
         );
 
-        viewerImage.src =
-            "";
+        viewerImage.src = "";
 
     }
 );
@@ -1839,8 +1498,7 @@ photoViewer.addEventListener(
                 "hidden"
             );
 
-            viewerImage.src =
-                "";
+            viewerImage.src = "";
 
         }
 
@@ -1849,12 +1507,12 @@ photoViewer.addEventListener(
 
 
 /* =====================================================
-   REDIMENSIONAMENTO
+   TECLADO
 ===================================================== */
 
-window.addEventListener(
-    "resize",
-    () => {
+document.addEventListener(
+    "keydown",
+    event => {
 
         if (
             !book.classList.contains(
@@ -1862,7 +1520,40 @@ window.addEventListener(
             )
         ) {
 
-            renderBook();
+            if (
+                event.key ===
+                "ArrowRight"
+            ) {
+
+                goNext();
+
+            }
+
+
+            if (
+                event.key ===
+                "ArrowLeft"
+            ) {
+
+                goPrevious();
+
+            }
+
+        }
+
+
+        if (
+            event.key ===
+            "Escape"
+        ) {
+
+            editorPanel.classList.add(
+                "hidden"
+            );
+
+            photoViewer.classList.add(
+                "hidden"
+            );
 
         }
 
@@ -1879,9 +1570,6 @@ async function startApp() {
     loadChapters();
 
 
-    updateChapterSelect();
-
-
     try {
 
         await openDatabase();
@@ -1889,7 +1577,7 @@ async function startApp() {
     } catch (error) {
 
         console.error(
-            "Armazenamento de mídia indisponível:",
+            "IndexedDB indisponível:",
             error
         );
 

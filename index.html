@@ -4,14 +4,12 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
 
-    <meta name="theme-color" content="#17101b">
-
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#100a12">
 
     <title>Para você ❤️</title>
 
@@ -22,31 +20,28 @@
 
 <div id="app">
 
-    <!-- ==================================================
+    <!-- ==============================
          CAPA
-    ================================================== -->
+    =============================== -->
 
-    <section id="cover" class="page-screen">
+    <section id="cover" class="screen">
 
-        <div class="cover-background">
-
-            <div class="cover-light"></div>
-
-            <div class="sparkle sparkle-1">✦</div>
-            <div class="sparkle sparkle-2">✧</div>
-            <div class="sparkle sparkle-3">✦</div>
-            <div class="sparkle sparkle-4">♡</div>
-
+        <div class="floating-decoration">
+            <span>✦</span>
+            <span>♡</span>
+            <span>✧</span>
+            <span>♡</span>
+            <span>✦</span>
         </div>
 
         <div class="cover-book">
 
-            <div class="cover-decoration top">
-                ✦
-            </div>
+            <div class="cover-border"></div>
 
-            <span class="cover-small">
-                UMA HISTÓRIA FEITA DE
+            <div class="cover-symbol">✦</div>
+
+            <span class="cover-label">
+                UMA HISTÓRIA PARA GUARDAR
             </span>
 
             <h1>
@@ -55,21 +50,23 @@
                 para guardar
             </h1>
 
-            <div class="cover-line"></div>
+            <div class="cover-divider">
+                <span>♡</span>
+            </div>
 
-            <p class="cover-dedication">
+            <p>
                 Para você,
                 <br>
-                com todo meu carinho. ❤️
+                com todo meu carinho.
             </p>
 
-            <button id="openBook" class="gold-button">
-                Abrir o livro
-                <span>→</span>
+            <button id="openBook" class="open-button">
+                <span>Abrir o livro</span>
+                <strong>→</strong>
             </button>
 
-            <div class="cover-decoration bottom">
-                ♡
+            <div class="cover-bottom">
+                ❤️
             </div>
 
         </div>
@@ -77,26 +74,24 @@
     </section>
 
 
-    <!-- ==================================================
+    <!-- ==============================
          LIVRO
-    ================================================== -->
+    =============================== -->
 
-    <section id="book" class="page-screen hidden">
+    <section id="book" class="screen hidden">
 
         <header class="book-header">
 
             <button
                 id="homeButton"
-                class="icon-button"
-                aria-label="Voltar para capa">
+                class="header-button"
+            >
                 ←
             </button>
 
-            <div class="book-title">
+            <div class="header-title">
 
-                <span>
-                    PARA VOCÊ
-                </span>
+                <span>PARA VOCÊ</span>
 
                 <small id="pageCounter">
                     Página 1
@@ -106,82 +101,50 @@
 
             <button
                 id="editButton"
-                class="icon-button"
-                aria-label="Editar livro">
+                class="header-button"
+            >
                 ✎
             </button>
 
         </header>
 
 
-        <main class="book-area">
+        <main class="book-main">
 
-            <button
-                id="previousPage"
-                class="page-arrow left"
-                aria-label="Página anterior">
-                ‹
-            </button>
+            <div class="book-shadow"></div>
 
+            <article
+                id="bookPage"
+                class="mobile-book-page"
+            >
 
-            <div
-                id="bookContainer"
-                class="book-container">
-
-                <article
-                    id="leftPage"
-                    class="book-page left-page">
+                <div class="page-inner">
 
                     <div
-                        id="leftContent"
-                        class="page-content">
-                    </div>
+                        id="pageContent"
+                        class="page-content"
+                    ></div>
 
-                </article>
+                </div>
 
-
-                <article
-                    id="rightPage"
-                    class="book-page right-page">
-
-                    <div
-                        id="rightContent"
-                        class="page-content">
-                    </div>
-
-                </article>
-
-            </div>
-
-
-            <button
-                id="nextPage"
-                class="page-arrow right"
-                aria-label="Próxima página">
-                ›
-            </button>
+            </article>
 
         </main>
 
 
-        <div
-            id="pageDots"
-            class="page-dots">
-        </div>
+        <div class="navigation">
 
-
-        <div class="mobile-controls">
-
-            <button id="mobilePrevious">
-                ←
+            <button id="previousPage">
+                ‹
             </button>
 
-            <span id="mobilePage">
-                1
-            </span>
+            <div
+                id="pageDots"
+                class="page-dots"
+            ></div>
 
-            <button id="mobileNext">
-                →
+            <button id="nextPage">
+                ›
             </button>
 
         </div>
@@ -189,110 +152,84 @@
     </section>
 
 
-    <!-- ==================================================
+    <!-- ==============================
          EDITOR
-    ================================================== -->
+    =============================== -->
 
     <div
         id="editorPanel"
-        class="overlay hidden">
+        class="overlay hidden"
+    >
 
         <div class="editor-box">
 
-            <div class="editor-top">
+            <div class="editor-header">
 
                 <div>
-
-                    <span>
-                        MODO DE EDIÇÃO
-                    </span>
+                    <span>EDITOR DO LIVRO</span>
 
                     <h2>
-                        Monte seu livro
+                        Personalize esta história
                     </h2>
-
                 </div>
 
                 <button
                     id="closeEditor"
-                    class="close-button">
+                    class="close-button"
+                >
                     ×
                 </button>
 
             </div>
 
 
-            <!-- PÁGINA -->
-
-            <label for="chapterSelect">
-                Página / capítulo
+            <label>
+                Página
             </label>
 
-            <select id="chapterSelect">
-            </select>
+            <select id="chapterSelect"></select>
 
 
-            <!-- NOVA PÁGINA -->
-
-            <button
-                id="addPage"
-                class="editor-button add-page-button">
-                ＋ Criar nova página
-            </button>
-
-
-            <!-- TÍTULO -->
-
-            <label for="titleInput">
-                Título da página
+            <label>
+                Título
             </label>
 
             <input
-                type="text"
                 id="titleInput"
-                class="text-input"
-                placeholder="Ex.: Nossos momentos ❤️">
+                type="text"
+                placeholder="Título da página..."
+            >
 
 
-            <!-- SUBTÍTULO -->
-
-            <label for="subtitleInput">
-                Pequeno texto acima do título
+            <label>
+                Subtítulo
             </label>
 
             <input
-                type="text"
                 id="subtitleInput"
-                class="text-input"
-                placeholder="Ex.: Uma lembrança especial">
+                type="text"
+                placeholder="Uma pequena frase..."
+            >
 
 
-            <!-- TEXTO -->
-
-            <label for="messageInput">
+            <label>
                 Mensagem
             </label>
 
             <textarea
                 id="messageInput"
-                placeholder="Escreva livremente tudo o que quiser...">
-            </textarea>
+                placeholder="Escreva livremente..."
+            ></textarea>
 
 
-            <!-- MÍDIA -->
+            <div class="media-buttons">
 
-            <div class="editor-buttons">
-
-                <button
-                    id="choosePhoto"
-                    class="editor-button">
-                    📷 Adicionar foto
+                <button id="choosePhoto">
+                    🖼️ Foto
                 </button>
 
-                <button
-                    id="chooseVideo"
-                    class="editor-button">
-                    🎥 Adicionar vídeo
+                <button id="chooseVideo">
+                    🎥 Vídeo
                 </button>
 
             </div>
@@ -303,45 +240,50 @@
                 id="photoInput"
                 accept="image/*"
                 multiple
-                hidden>
-
+                hidden
+            >
 
             <input
                 type="file"
                 id="videoInput"
                 accept="video/*"
                 multiple
-                hidden>
+                hidden
+            >
 
 
-            <!-- PRÉVIA -->
+            <div class="preview-area">
 
-            <div class="media-preview">
-
-                <div class="preview-title">
-                    Mídias adicionadas
-                </div>
+                <span>
+                    Mídias desta página
+                </span>
 
                 <div
                     id="mediaPreview"
-                    class="preview-grid">
-                </div>
+                    class="preview-grid"
+                ></div>
 
             </div>
 
 
-            <!-- SALVAR -->
+            <button
+                id="addPage"
+                class="secondary-button"
+            >
+                ＋ Criar nova página
+            </button>
+
 
             <button
                 id="savePage"
-                class="save-page">
+                class="save-button"
+            >
                 Salvar página ❤️
             </button>
 
 
-            <p class="editor-note">
-                Você pode criar quantas páginas quiser.
-                Fotos e vídeos ficam armazenados neste navegador.
+            <p class="editor-warning">
+                As alterações ficam salvas neste navegador.
             </p>
 
         </div>
@@ -349,31 +291,35 @@
     </div>
 
 
-    <!-- ==================================================
-         VISUALIZADOR DE FOTO
-    ================================================== -->
+    <!-- ==============================
+         VISUALIZADOR
+    =============================== -->
 
     <div
         id="photoViewer"
-        class="photo-viewer hidden">
+        class="photo-viewer hidden"
+    >
 
         <button
             id="closeViewer"
-            class="viewer-close">
+            class="viewer-close"
+        >
             ×
         </button>
 
         <img
             id="viewerImage"
             src=""
-            alt="Foto ampliada">
+            alt="Foto"
+        >
 
     </div>
 
-
 </div>
+
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
