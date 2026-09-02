@@ -1,9 +1,6 @@
 /* ==========================================
-   PRESENTE DE ANIVERSÁRIO
+   PRESENTE DE ANIVERSÁRIO ❤️
    ========================================== */
-
-
-/* PÁGINA ATUAL */
 
 let paginaAtual = 0;
 
@@ -132,7 +129,7 @@ const paginas = [
                 Saiba que independente de qualquer situação, vc sempre será minha irmãzona e q n me arrependo de nada ate agr.
 
                 Vc foi a mlhr pessoa que eu pude conhecer em 2024, e sinceramente, foi o mlhr ano da minha vida por causa da sua amizade ❤️
-                
+
                 Obrigada por ser vc , obrigada por simplesmente existir maninha, te amoooo ❤️❤️❤️
             </p>
 
@@ -153,6 +150,7 @@ const paginas = [
                         type="video/mp4">
 
                     Seu navegador não conseguiu carregar o vídeo.
+
                 </video>
 
             </div>
@@ -205,7 +203,7 @@ const paginas = [
 
 
     /* ======================================
-       PÁGINA 7 — Yasmin
+       PÁGINA 7 — YASMIN
        ====================================== */
 
     {
@@ -221,53 +219,47 @@ const paginas = [
         conteudo: `
             <p class="mensagem">
                 Oioi Emy!!
-Não sei exatamente como esse texto vai chegar pra você mas enfim.. 
+                Não sei exatamente como esse texto vai chegar pra você mas enfim..
 
-Eu gostaria de te desejar um feliz aniversário, espero que você continue sendo essa pessoa maravilhosa!!
+                Eu gostaria de te desejar um feliz aniversário, espero que você continue sendo essa pessoa maravilhosa!!
 
-Em apenas dois anos de amizade você me proporcionou e continua proporcionando inúmeras emoções, você é uma pessoa muito especial para mim, mesmo não se falando tanto, mesmo que aconteça algo em nossas vidas ou estarmos muito ocupadas para conversarmos, meu silêncio e distância não significa  que sou insenta de sentir algo, você é e sempre será alguém muito especial para mim, espero que nunca duvide disso!!
- 
-Eu estarei aqui nos seus momentos bons e ruins, sempre que você precisar, seja pra conversar, fofocar, falar merda ou até mesmo ficar em silêncio. Saiba que você nunca precisa ficar sozinha ou se sentir sozinha.
+                Em apenas dois anos de amizade você me proporcionou e continua proporcionando inúmeras emoções, você é uma pessoa muito especial para mim, mesmo não se falando tanto, mesmo que aconteça algo em nossas vidas ou estarmos muito ocupadas para conversarmos, meu silêncio e distância não significa que sou insenta de sentir algo, você é e sempre será alguém muito especial para mim, espero que nunca duvide disso!!
 
-Te desejo tudo de bom que o mundo possa oferecer, você merece isso e muito mais!! Muito obrigada por ter simplesmente aparecido na minha vida mulher, amo você!!🫶💜
-          </p>
+                Eu estarei aqui nos seus momentos bons e ruins, sempre que você precisar, seja pra conversar, fofocar, falar merda ou até mesmo ficar em silêncio. Saiba que você nunca precisa ficar sozinha ou se sentir sozinha.
+
+                Te desejo tudo de bom que o mundo possa oferecer, você merece isso e muito mais!! Muito obrigada por ter simplesmente aparecido na minha vida mulher, amo você!!🫶💜
+            </p>
         `
     },
 
-    /* ======================================
-       PÁGINA 8 — Kay
-       ====================================== */
-    
-    {
-        titulo: "Uma mensagem da sua prima kay ❤️",
 
-        subtitulo: "✨De alguém especial✨",
+    /* ======================================
+       PÁGINA 8 — KAY
+       ====================================== */
+
+    {
+        titulo: "Uma mensagem da sua prima Kay ❤️",
+
+        subtitulo: "✨ De alguém especial ✨",
 
         fotos: [
             "img/kay.jpg"
         ],
+
         conteudo: `
             <p class="mensagem">
                 Quando os dias estavam nublados me peguei pulando na cama de alegria ao interpretar da boca de minha mãe que você viria.
-Acostumada a sua presença quando ia de encontro a possíveis coisas chatas e entediantes, você era minha acompanhante, minha cúmplice de alegrias e idiotices,
-então, para todos os dias que estivemos juntas, para todos os dias que tivemos separadas, das vidas uma da outra. Do meu coração, ao seu Coração.
-             <p/>
+
+                Acostumada a sua presença quando ia de encontro a possíveis coisas chatas e entediantes, você era minha acompanhante, minha cúmplice de alegrias e idiotices,
+
+                então, para todos os dias que estivemos juntas, para todos os dias que tivemos separadas, das vidas uma da outra. Do meu coração, ao seu Coração.
+            </p>
         `
     },
 
 
-
-
-
-
-
-
-
-
-
-
     /* ======================================
-       PÁGINA 8 — FINAL
+       PÁGINA 9 — FINAL
        ====================================== */
 
     {
@@ -352,8 +344,9 @@ function iniciarLivro() {
 
     criarIndicadores();
 
-    mostrarPagina();
+    criarVisualizadorFotos();
 
+    mostrarPagina();
 }
 
 
@@ -369,12 +362,10 @@ function abrirLivro() {
     const livro =
         document.getElementById("livro");
 
-
     capa.classList.remove("ativa");
 
     capa.style.animation =
         "aparecer .5s reverse";
-
 
     setTimeout(() => {
 
@@ -400,19 +391,14 @@ function mostrarPagina() {
     const pagina =
         paginas[paginaAtual];
 
-
-    /* Reinicia animação */
-
     paginaElemento.style.animation =
         "none";
 
     void paginaElemento.offsetWidth;
 
     paginaElemento.style.animation =
-        "virarPagina .7s ease";
+        "virarPagina .8s cubic-bezier(.2,.8,.2,1)";
 
-
-    /* Título */
 
     let html = `
 
@@ -427,19 +413,35 @@ function mostrarPagina() {
     `;
 
 
-    /* Fotos */
+    /* ======================================
+       FOTOS
+       ====================================== */
 
     if (pagina.fotos) {
 
         if (pagina.fotos.length === 1) {
 
             html += `
+
                 <div class="fotos">
-                    <img
-                        class="foto-unica"
-                        src="${pagina.fotos[0]}"
-                        alt="Foto especial">
+
+                    <div
+                        class="foto-wrapper foto-unica-wrapper"
+                        onclick="abrirFoto('${pagina.fotos[0]}')">
+
+                        <img
+                            class="foto-unica"
+                            src="${pagina.fotos[0]}"
+                            alt="Foto especial">
+
+                        <div class="icone-zoom">
+                            ⛶
+                        </div>
+
+                    </div>
+
                 </div>
+
             `;
 
         } else {
@@ -452,10 +454,22 @@ function mostrarPagina() {
                 (foto, index) => {
 
                     html += `
-                        <img
-                            class="foto"
-                            src="${foto}"
-                            alt="Foto especial ${index + 1}">
+
+                        <div
+                            class="foto-wrapper"
+                            onclick="abrirFoto('${foto}')">
+
+                            <img
+                                class="foto"
+                                src="${foto}"
+                                alt="Foto especial ${index + 1}">
+
+                            <div class="icone-zoom">
+                                ⛶
+                            </div>
+
+                        </div>
+
                     `;
                 }
             );
@@ -467,24 +481,15 @@ function mostrarPagina() {
     }
 
 
-    /* Conteúdo */
-
     html += pagina.conteudo;
-
-
-    /* Coloca tudo na página */
 
     paginaElemento.innerHTML =
         html;
 
 
-    /* Número */
-
     paginaNumero.textContent =
         paginaAtual + 1;
 
-
-    /* Botões */
 
     botaoAnterior.disabled =
         paginaAtual === 0;
@@ -495,8 +500,6 @@ function mostrarPagina() {
 
     atualizarIndicadores();
 
-
-    /* Volta para o topo */
 
     window.scrollTo({
         top: 0,
@@ -588,30 +591,162 @@ function atualizarIndicadores() {
                 "ativo",
                 index === paginaAtual
             );
-
         }
     );
 }
 
 
 /* ==========================================
-   TECLADO DO PC
+   VISUALIZADOR DE FOTOS
+   ========================================== */
+
+function criarVisualizadorFotos() {
+
+    if (
+        document.getElementById(
+            "visualizador-foto"
+        )
+    ) {
+        return;
+    }
+
+
+    const visualizador =
+        document.createElement("div");
+
+    visualizador.id =
+        "visualizador-foto";
+
+    visualizador.className =
+        "visualizador-foto";
+
+
+    visualizador.innerHTML = `
+
+        <button
+            class="fechar-foto"
+            onclick="fecharFoto()">
+            ×
+        </button>
+
+        <div
+            class="foto-ampliada-area"
+            onclick="fecharFoto()">
+
+            <img
+                id="foto-ampliada"
+                src=""
+                alt="Foto ampliada"
+                onclick="event.stopPropagation()">
+
+        </div>
+
+        <p class="texto-zoom">
+            Toque fora da foto para fechar
+        </p>
+
+    `;
+
+
+    document.body.appendChild(
+        visualizador
+    );
+}
+
+
+/* ==========================================
+   ABRIR FOTO
+   ========================================== */
+
+function abrirFoto(caminho) {
+
+    const visualizador =
+        document.getElementById(
+            "visualizador-foto"
+        );
+
+    const imagem =
+        document.getElementById(
+            "foto-ampliada"
+        );
+
+
+    imagem.src =
+        caminho;
+
+
+    visualizador.classList.add(
+        "aberto"
+    );
+
+
+    document.body.classList.add(
+        "sem-scroll"
+    );
+}
+
+
+/* ==========================================
+   FECHAR FOTO
+   ========================================== */
+
+function fecharFoto() {
+
+    const visualizador =
+        document.getElementById(
+            "visualizador-foto"
+        );
+
+
+    visualizador.classList.remove(
+        "aberto"
+    );
+
+
+    document.body.classList.remove(
+        "sem-scroll"
+    );
+
+
+    setTimeout(() => {
+
+        document.getElementById(
+            "foto-ampliada"
+        ).src = "";
+
+    }, 300);
+}
+
+
+/* ==========================================
+   ESC FECHA A FOTO
    ========================================== */
 
 document.addEventListener(
     "keydown",
     (evento) => {
 
-        if (evento.key === "ArrowRight") {
+        if (
+            evento.key === "Escape"
+        ) {
 
-            proximaPagina();
-
+            fecharFoto();
         }
 
-        if (evento.key === "ArrowLeft") {
+
+        if (
+            evento.key === "ArrowRight"
+        ) {
+
+            proximaPagina();
+        }
+
+
+        if (
+            evento.key === "ArrowLeft"
+        ) {
 
             paginaAnterior();
-
         }
     }
 );
@@ -649,15 +784,32 @@ document.addEventListener(
             toqueInicialX;
 
 
-        /* Arrastou para a esquerda */
+        /*
+        Não troca de página se
+        estiver visualizando uma foto.
+        */
+
+        const visualizador =
+            document.getElementById(
+                "visualizador-foto"
+            );
+
+
+        if (
+            visualizador &&
+            visualizador.classList.contains(
+                "aberto"
+            )
+        ) {
+            return;
+        }
+
 
         if (distancia < -60) {
 
             proximaPagina();
         }
 
-
-        /* Arrastou para a direita */
 
         if (distancia > 60) {
 
