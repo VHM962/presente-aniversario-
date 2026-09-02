@@ -203,35 +203,25 @@ const paginas = [
 
 
     /* ======================================
-       PÁGINA 7 — RESERVADA
+       PÁGINA 7 — Yasmin
        ====================================== */
 
     {
-        titulo: "Ainda falta uma mensagem... ❤️",
+        titulo: "Uma mensagem da Yasmin ❤️",
 
-        subtitulo: "Essa página será preenchida depois",
+        subtitulo: "Sua irmãzinha",
+
+        fotos: [
+            "img/yasmin.jpg",
+            "img/yasmin2.jpg"
+        ],
 
         conteudo: `
-            <div class="final">
-
-                <div class="coracao-final">
-                    ❤️
-                </div>
-
-                <h2>
-                    Em breve...
-                </h2>
-
-                <p class="mensagem">
-                    Ainda temos algumas mensagens
-                    especiais para colocar aqui.
-
-                    Yasmin, Kay e uma pessoa
-                    muito importante ainda vão
-                    deixar suas palavras. ❤️
-                </p>
-
-            </div>
+            <p class="mensagem">
+                Oioi Emy!!
+Não sei exatamente como esse texto vai chegar pra você mas enfim.. 
+Eu gostaria de te desejar um feliz aniversário, espero que você continue sendo essa pessoa maravilhosa!! Em apenas dois anos de amizade você me proporcionou e continua proporcionando inúmeras emoções, você é uma pessoa muito especial para mim, mesmo não se falando tanto, mesmo que aconteça algo em nossas vidas ou estarmos muito ocupadas para conversarmos, meu silêncio e distância não significa  que sou insenta de sentir algo, você é e sempre será alguém muito especial para mim, espero que nunca duvide disso!! Eu estarei aqui nos seus momentos bons e ruins, sempre que você precisar, seja pra conversar, fofocar, falar merda ou até mesmo ficar em silêncio. Saiba que você nunca precisa ficar sozinha ou se sentir sozinha. Te desejo tudo de bom que o mundo possa oferecer, você merece isso e muito mais!! Muito obrigada por ter simplesmente aparecido na minha vida mulher, amo você!!🫶💜
+          </p>
         `
     },
 
