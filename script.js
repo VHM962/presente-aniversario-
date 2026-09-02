@@ -220,7 +220,14 @@ const paginas = [
             <p class="mensagem">
                 Oioi Emy!!
 Não sei exatamente como esse texto vai chegar pra você mas enfim.. 
-Eu gostaria de te desejar um feliz aniversário, espero que você continue sendo essa pessoa maravilhosa!! Em apenas dois anos de amizade você me proporcionou e continua proporcionando inúmeras emoções, você é uma pessoa muito especial para mim, mesmo não se falando tanto, mesmo que aconteça algo em nossas vidas ou estarmos muito ocupadas para conversarmos, meu silêncio e distância não significa  que sou insenta de sentir algo, você é e sempre será alguém muito especial para mim, espero que nunca duvide disso!! Eu estarei aqui nos seus momentos bons e ruins, sempre que você precisar, seja pra conversar, fofocar, falar merda ou até mesmo ficar em silêncio. Saiba que você nunca precisa ficar sozinha ou se sentir sozinha. Te desejo tudo de bom que o mundo possa oferecer, você merece isso e muito mais!! Muito obrigada por ter simplesmente aparecido na minha vida mulher, amo você!!🫶💜
+
+Eu gostaria de te desejar um feliz aniversário, espero que você continue sendo essa pessoa maravilhosa!!
+
+Em apenas dois anos de amizade você me proporcionou e continua proporcionando inúmeras emoções, você é uma pessoa muito especial para mim, mesmo não se falando tanto, mesmo que aconteça algo em nossas vidas ou estarmos muito ocupadas para conversarmos, meu silêncio e distância não significa  que sou insenta de sentir algo, você é e sempre será alguém muito especial para mim, espero que nunca duvide disso!!
+ 
+Eu estarei aqui nos seus momentos bons e ruins, sempre que você precisar, seja pra conversar, fofocar, falar merda ou até mesmo ficar em silêncio. Saiba que você nunca precisa ficar sozinha ou se sentir sozinha.
+
+Te desejo tudo de bom que o mundo possa oferecer, você merece isso e muito mais!! Muito obrigada por ter simplesmente aparecido na minha vida mulher, amo você!!🫶💜
           </p>
         `
     },
