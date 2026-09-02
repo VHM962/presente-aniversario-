@@ -131,7 +131,9 @@ const paginas = [
 
                 Saiba que independente de qualquer situação, vc sempre será minha irmãzona e q n me arrependo de nada ate agr.
 
-                Vc foi a mlhr pessoa que eu pude conhecer em 2024, e sinceramente, foi o mlhr ano da minha vida por causa da sua amizade ❤️ obrigada por ser vc , obrigada por simplesmente existir maninha, te amoooo ❤️❤️❤️
+                Vc foi a mlhr pessoa que eu pude conhecer em 2024, e sinceramente, foi o mlhr ano da minha vida por causa da sua amizade ❤️
+                
+                Obrigada por ser vc , obrigada por simplesmente existir maninha, te amoooo ❤️❤️❤️
             </p>
 
             <div class="video-area">
@@ -231,6 +233,37 @@ Te desejo tudo de bom que o mundo possa oferecer, você merece isso e muito mais
           </p>
         `
     },
+
+    /* ======================================
+       PÁGINA 8 — Kay
+       ====================================== */
+    
+    {
+        titulo: "Uma mensagem da sua prima kay ❤️",
+
+        subtitulo: "✨De alguém especial✨",
+
+        fotos: [
+            "img/kay.jpg"
+        ],
+        conteudo: `
+            <p class="mensagem">
+                Quando os dias estavam nublados me peguei pulando na cama de alegria ao interpretar da boca de minha mãe que você viria.
+Acostumada a sua presença quando ia de encontro a possíveis coisas chatas e entediantes, você era minha acompanhante, minha cúmplice de alegrias e idiotices,
+então, para todos os dias que estivemos juntas, para todos os dias que tivemos separadas, das vidas uma da outra. Do meu coração, ao seu Coração.
+             <p/>
+        `
+    },
+
+
+
+
+
+
+
+
+
+
 
 
     /* ======================================
