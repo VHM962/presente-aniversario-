@@ -4,322 +4,130 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    >
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <meta name="theme-color" content="#100a12">
+    <meta name="theme-color" content="#17111f">
 
-    <title>Para você ❤️</title>
+    <title>Para Emy ❤️</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div id="app">
+    <!-- FUNDO ANIMADO -->
+    <div class="background">
+        <div class="stars"></div>
+        <div class="hearts"></div>
+    </div>
 
-    <!-- ==============================
-         CAPA
-    =============================== -->
 
-    <section id="cover" class="screen">
+    <!-- ========================= -->
+    <!-- CAPA -->
+    <!-- ========================= -->
 
-        <div class="floating-decoration">
-            <span>✦</span>
-            <span>♡</span>
-            <span>✧</span>
-            <span>♡</span>
-            <span>✦</span>
-        </div>
+    <section id="capa" class="tela ativa">
 
-        <div class="cover-book">
+        <div class="capa-conteudo">
 
-            <div class="cover-border"></div>
+            <div class="brilho">✦</div>
 
-            <div class="cover-symbol">✦</div>
-
-            <span class="cover-label">
-                UMA HISTÓRIA PARA GUARDAR
-            </span>
-
-            <h1>
-                Momentos
-                <br>
-                para guardar
-            </h1>
-
-            <div class="cover-divider">
-                <span>♡</span>
-            </div>
-
-            <p>
-                Para você,
-                <br>
-                com todo meu carinho.
+            <p class="pequeno">
+                Um pequeno presente para
             </p>
 
-            <button id="openBook" class="open-button">
-                <span>Abrir o livro</span>
-                <strong>→</strong>
+            <h1>Emy</h1>
+
+            <div class="linha"></div>
+
+            <p class="frase-capa">
+                Para uma pessoa muito especial
+                que merece o mundo inteiro. ❤️
+            </p>
+
+            <button class="botao-abrir" onclick="abrirLivro()">
+                Abrir meu presente
+                <span>❤️</span>
             </button>
 
-            <div class="cover-bottom">
-                ❤️
-            </div>
+            <p class="toque">
+                Toque para começar
+            </p>
 
         </div>
 
     </section>
 
 
-    <!-- ==============================
-         LIVRO
-    =============================== -->
+    <!-- ========================= -->
+    <!-- LIVRO -->
+    <!-- ========================= -->
 
-    <section id="book" class="screen hidden">
+    <main id="livro" class="livro escondido">
 
-        <header class="book-header">
-
-            <button
-                id="homeButton"
-                class="header-button"
-            >
-                ←
-            </button>
-
-            <div class="header-title">
-
-                <span>PARA VOCÊ</span>
-
-                <small id="pageCounter">
-                    Página 1
-                </small>
-
-            </div>
-
-            <button
-                id="editButton"
-                class="header-button"
-            >
-                ✎
-            </button>
-
-        </header>
+        <!-- CONTADOR -->
+        <div class="contador">
+            <span id="paginaAtual">1</span>
+            /
+            <span id="totalPaginas">8</span>
+        </div>
 
 
-        <main class="book-main">
+        <!-- PÁGINA -->
+        <div class="pagina-container">
 
-            <div class="book-shadow"></div>
+            <article id="pagina" class="pagina">
 
-            <article
-                id="bookPage"
-                class="mobile-book-page"
-            >
-
-                <div class="page-inner">
-
-                    <div
-                        id="pageContent"
-                        class="page-content"
-                    ></div>
-
-                </div>
+                <!-- CONTEÚDO INSERIDO PELO JAVASCRIPT -->
 
             </article>
 
-        </main>
+        </div>
 
 
-        <div class="navigation">
+        <!-- CONTROLES -->
 
-            <button id="previousPage">
-                ‹
+        <div class="controles">
+
+            <button
+                id="anterior"
+                class="botao-controle"
+                onclick="paginaAnterior()">
+                ←
             </button>
 
-            <div
-                id="pageDots"
-                class="page-dots"
-            ></div>
+            <div class="indicadores" id="indicadores"></div>
 
-            <button id="nextPage">
-                ›
+            <button
+                id="proxima"
+                class="botao-controle"
+                onclick="proximaPagina()">
+                →
             </button>
 
         </div>
 
-    </section>
+    </main>
 
 
-    <!-- ==============================
-         EDITOR
-    =============================== -->
+    <!-- ========================= -->
+    <!-- ÁUDIO OPCIONAL -->
+    <!-- ========================= -->
 
-    <div
-        id="editorPanel"
-        class="overlay hidden"
-    >
+    <audio id="musica" loop>
+        <!--
+        Se quiser colocar uma música depois,
+        coloque o arquivo na pasta media e altere aqui.
 
-        <div class="editor-box">
+        Exemplo:
 
-            <div class="editor-header">
-
-                <div>
-                    <span>EDITOR DO LIVRO</span>
-
-                    <h2>
-                        Personalize esta história
-                    </h2>
-                </div>
-
-                <button
-                    id="closeEditor"
-                    class="close-button"
-                >
-                    ×
-                </button>
-
-            </div>
+        <source src="media/musica.mp3" type="audio/mpeg">
+        -->
+    </audio>
 
 
-            <label>
-                Página
-            </label>
-
-            <select id="chapterSelect"></select>
-
-
-            <label>
-                Título
-            </label>
-
-            <input
-                id="titleInput"
-                type="text"
-                placeholder="Título da página..."
-            >
-
-
-            <label>
-                Subtítulo
-            </label>
-
-            <input
-                id="subtitleInput"
-                type="text"
-                placeholder="Uma pequena frase..."
-            >
-
-
-            <label>
-                Mensagem
-            </label>
-
-            <textarea
-                id="messageInput"
-                placeholder="Escreva livremente..."
-            ></textarea>
-
-
-            <div class="media-buttons">
-
-                <button id="choosePhoto">
-                    🖼️ Foto
-                </button>
-
-                <button id="chooseVideo">
-                    🎥 Vídeo
-                </button>
-
-            </div>
-
-
-            <input
-                type="file"
-                id="photoInput"
-                accept="image/*"
-                multiple
-                hidden
-            >
-
-            <input
-                type="file"
-                id="videoInput"
-                accept="video/*"
-                multiple
-                hidden
-            >
-
-
-            <div class="preview-area">
-
-                <span>
-                    Mídias desta página
-                </span>
-
-                <div
-                    id="mediaPreview"
-                    class="preview-grid"
-                ></div>
-
-            </div>
-
-
-            <button
-                id="addPage"
-                class="secondary-button"
-            >
-                ＋ Criar nova página
-            </button>
-
-
-            <button
-                id="savePage"
-                class="save-button"
-            >
-                Salvar página ❤️
-            </button>
-
-
-            <p class="editor-warning">
-                As alterações ficam salvas neste navegador.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- ==============================
-         VISUALIZADOR
-    =============================== -->
-
-    <div
-        id="photoViewer"
-        class="photo-viewer hidden"
-    >
-
-        <button
-            id="closeViewer"
-            class="viewer-close"
-        >
-            ×
-        </button>
-
-        <img
-            id="viewerImage"
-            src=""
-            alt="Foto"
-        >
-
-    </div>
-
-</div>
-
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
-
 </html>

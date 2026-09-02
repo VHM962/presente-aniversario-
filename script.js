@@ -1,1589 +1,637 @@
-/* =====================================================
-   LIVRO DIGITAL — VERSÃO MOBILE
-===================================================== */
+/* ==========================================
+   PRESENTE DE ANIVERSÁRIO
+   ========================================== */
 
 
-/* =====================================================
-   ELEMENTOS
-===================================================== */
+/* PÁGINA ATUAL */
 
-const cover =
-    document.getElementById("cover");
-
-const book =
-    document.getElementById("book");
-
-const openBook =
-    document.getElementById("openBook");
-
-const homeButton =
-    document.getElementById("homeButton");
-
-const editButton =
-    document.getElementById("editButton");
-
-const previousPage =
-    document.getElementById("previousPage");
-
-const nextPage =
-    document.getElementById("nextPage");
-
-const pageContent =
-    document.getElementById("pageContent");
-
-const pageCounter =
-    document.getElementById("pageCounter");
-
-const pageDots =
-    document.getElementById("pageDots");
+let paginaAtual = 0;
 
 
-/* =====================================================
-   EDITOR
-===================================================== */
+/* ==========================================
+   CONTEÚDO DO LIVRO
+   ========================================== */
 
-const editorPanel =
-    document.getElementById("editorPanel");
+const paginas = [
 
-const closeEditor =
-    document.getElementById("closeEditor");
-
-const chapterSelect =
-    document.getElementById("chapterSelect");
-
-const titleInput =
-    document.getElementById("titleInput");
-
-const subtitleInput =
-    document.getElementById("subtitleInput");
-
-const messageInput =
-    document.getElementById("messageInput");
-
-const choosePhoto =
-    document.getElementById("choosePhoto");
-
-const chooseVideo =
-    document.getElementById("chooseVideo");
-
-const photoInput =
-    document.getElementById("photoInput");
-
-const videoInput =
-    document.getElementById("videoInput");
-
-const mediaPreview =
-    document.getElementById("mediaPreview");
-
-const addPage =
-    document.getElementById("addPage");
-
-const savePage =
-    document.getElementById("savePage");
-
-
-/* =====================================================
-   VISUALIZADOR
-===================================================== */
-
-const photoViewer =
-    document.getElementById("photoViewer");
-
-const viewerImage =
-    document.getElementById("viewerImage");
-
-const closeViewer =
-    document.getElementById("closeViewer");
-
-
-/* =====================================================
-   PÁGINAS
-===================================================== */
-
-let chapters = [
+    /* ======================================
+       PÁGINA 1 — INTRODUÇÃO
+       ====================================== */
 
     {
-        id: "intro",
+        titulo: "Para você, Emy ❤️",
 
-        title: "Antes de tudo...",
+        subtitulo: "Um pequeno presente",
 
-        subtitle:
-            "Uma pequena introdução",
+        conteudo: `
+            <div class="ornamento">✦ ✧ ✦</div>
 
-        text:
-`Existem momentos que passam rápido demais para serem guardados apenas na memória.
+            <p class="mensagem">
+                Hoje é um dia muito especial.
 
-Por isso eu quis criar este pequeno livro.
+                E eu queria fazer alguma coisa diferente para você.
 
-Cada página aqui foi feita para guardar um pedacinho de carinho, lembranças e pessoas que fazem parte da sua história.`,
+                Então pensei em reunir algumas das pessoas que
+                fazem parte da sua vida e deixar aqui um pedacinho
+                do carinho que cada uma delas sente por você.
 
-        media: []
+                Talvez esse livro seja simples...
+
+                Mas cada palavra aqui foi colocada com muito carinho.
+
+                Espero que você goste. ❤️
+            </p>
+
+            <div class="ornamento">♡</div>
+
+            <p class="assinatura">
+                Com amor,<br>
+                alguém que te ama muito.
+            </p>
+        `
     },
 
 
+    /* ======================================
+       PÁGINA 2 — MÃE
+       ====================================== */
+
     {
-        id: "mom",
+        titulo: "Uma mensagem da mãe ❤️",
 
-        title:
-            "Uma mensagem da mãe",
+        subtitulo: "De quem sempre estará ao seu lado",
 
-        subtitle:
-            "Amor que começou antes mesmo de você chegar",
+        fotos: [
+            "img/mae1.jpg",
+            "img/mae2.jpg"
+        ],
 
-        text:
-`Parece que foi ontem que eu te segurei nos braços pela primeira vez, e chorei muito pq achei q não ia conseguir te criar direto.
+        conteudo: `
+            <p class="mensagem">
+                Parece que foi ontem que eu te segurei nos braços pela primeira vez, e chorei muito pq achei q não ia conseguir te criar direto. O tempo passou voando, e hoje vc completa 18 anos. Olho para trás e vejo o quanto você cresceu. E hj sinto um orgulho enorme da mulher incrível que você está se tornando, forte, inteligente, sensível, chorona e cheia de alegria. A maioridade chegou, trazendo novos sonhos, escolhas e caminhos. Quero que você saiba que, não importa o tamanho do mundo ou a distância que você decida voar, eu sempre serei o seu porto seguro. Sempre pode contar comigo ..
 
-O tempo passou voando, e hoje vc completa 18 anos. Olho para trás e vejo o quanto você cresceu. E hj sinto um orgulho enorme da mulher incrível que você está se tornando, forte, inteligente, sensível, chorona e cheia de alegria.
+                Te amo muito muito, vc sempre vai ser o meu bb❤️
 
-A maioridade chegou, trazendo novos sonhos, escolhas e caminhos. Quero que você saiba que, não importa o tamanho do mundo ou a distância que você decida voar, eu sempre serei o seu porto seguro. Sempre pode contar comigo.
-
-Te amo muito muito, vc sempre vai ser o meu bb ❤️
-
-Agora bora comprar um Civic no seu CPF kkkkkkk`,
-
-        media: []
+                Agora bora comprar um Civic no seu CPF kkkkkkk
+            </p>
+        `
     },
 
 
+    /* ======================================
+       PÁGINA 3 — DANI
+       ====================================== */
+
     {
-        id: "friend1",
+        titulo: "Uma mensagem do Dani",
 
-        title:
-            "Uma mensagem especial",
+        subtitulo: "Tio Dani mandou um abraço 🤭",
 
-        subtitle:
-            "De alguém que faz parte dessa história",
+        fotos: [
+            "img/dani.jpg"
+        ],
 
-        text:
-`Essa página está esperando uma mensagem especial.
+        conteudo: `
+            <p class="mensagem">
+                Parabéns pelos 18 aninhos Emy, saiba que vc é uma pessoa muito especial.
 
-Quando sua amiga mandar o texto, você pode colocar aqui.`,
+                Fico muito feliz de ver a jovem inteligente, divertida e responsável que vc se tornou.
 
-        media: []
+                Se eu fosse seu pai estaria muito orgulhoso de ver todo seu esforço.
+
+                Que essa nova fase venha cheia de sonhos, conquistas, aventuras e, claro, um pouquinho de juízo! 😅😂
+
+                Tio Dani mandou um abraço 🤭🤭🤭
+            </p>
+        `
     },
 
 
+    /* ======================================
+       PÁGINA 4 — JADY
+       ====================================== */
+
     {
-        id: "friend2",
+        titulo: "Uma mensagem da Jady ❤️",
 
-        title:
-            "Mais uma lembrança",
+        subtitulo: "Sua irmãzona",
 
-        subtitle:
-            "Porque algumas amizades viram família",
+        fotos: [
+            "img/jady1.jpg",
+            "img/jady2.jpg",
+            "img/jady3.jpg"
+        ],
 
-        text:
-`Aqui vai entrar outra mensagem.
+        conteudo: `
+            <p class="mensagem">
+                Oii emy, bom n sou muito
+                Boa nas palavras ksksk
 
-Também dá para colocar fotos e vídeos dessa pessoa.`,
+                Gatinha, feliz aniversário que o papai do céu te abençoe muito nesse seu dia, que vc continue sendo essa menino incrível que vc é❤️
 
-        media: []
+                Saiba que independente de qualquer situação, vc sempre será minha irmãzona e q n me arrependo de nada ate agr.
+
+                Vc foi a mlhr pessoa que eu pude conhecer em 2024, e sinceramente, foi o mlhr ano da minha vida por causa da sua amizade ❤️ obrigada por ser vc , obrigada por simplesmente existir maninha, te amoooo ❤️❤️❤️
+            </p>
+
+            <div class="video-area">
+
+                <p class="video-titulo">
+                    E ainda tem uma surpresa... 🎬❤️
+                </p>
+
+                <video
+                    class="video"
+                    controls
+                    playsinline
+                    preload="metadata">
+
+                    <source
+                        src="media/jady_video.mp4"
+                        type="video/mp4">
+
+                    Seu navegador não conseguiu carregar o vídeo.
+                </video>
+
+            </div>
+        `
     },
 
 
+    /* ======================================
+       PÁGINA 5 — TIA DÉBORA
+       ====================================== */
+
     {
-        id: "stepfather",
+        titulo: "Uma mensagem da Tia Débora ❤️",
 
-        title:
-            "Uma mensagem especial",
+        subtitulo: "Da princesa da tia",
 
-        subtitle:
-            "De alguém importante na sua história",
+        fotos: [
+            "img/Tia_debora.jpg"
+        ],
 
-        text:
-`Essa página está reservada para uma mensagem especial.`,
+        conteudo: `
+            <p class="mensagem">
+                Parabéns princesa da tia, lembro de você pequena quando te conheci, e hoje está se tornando uma mulher linda, inteligente e de um coração enorme, muito obrigada por fazer parte da minha vida.
 
-        media: []
+                A tia te ama muito tá, e desculpa a ausência viu❤️
+            </p>
+        `
     },
 
 
+    /* ======================================
+       PÁGINA 6 — TIO KAIQUE
+       ====================================== */
+
     {
-        id: "me",
+        titulo: "Uma mensagem do Tio Kaique",
 
-        title:
-            "De mim para você",
+        subtitulo: "Com muito carinho",
 
-        subtitle:
-            "Agora é a minha vez",
+        fotos: [
+            "img/Tio_kaique.jpg"
+        ],
 
-        text:
-`Aqui vai ficar a minha mensagem.
-
-Essa página pode ter fotos nossas, vídeos, histórias, lembranças e tudo aquilo que eu ainda quero te dizer.
-
-❤️`,
-
-        media: []
+        conteudo: `
+            <p class="mensagem">
+                Você se tornou uma mulher maravilhosa, não estive presente mais sempre orei por você
+            </p>
+        `
     },
 
 
+    /* ======================================
+       PÁGINA 7 — RESERVADA
+       ====================================== */
+
     {
-        id: "final",
+        titulo: "Ainda falta uma mensagem... ❤️",
 
-        title:
-            "E essa história continua...",
+        subtitulo: "Essa página será preenchida depois",
 
-        subtitle:
-            "O melhor ainda está por vir",
+        conteudo: `
+            <div class="final">
 
-        text:
-`Se chegamos até aqui, é porque já existe muita coisa bonita para lembrar.
+                <div class="coracao-final">
+                    ❤️
+                </div>
 
-Mas esse livro não termina nessa página.
+                <h2>
+                    Em breve...
+                </h2>
 
-Ainda existem muitos momentos que a gente não viveu.
+                <p class="mensagem">
+                    Ainda temos algumas mensagens
+                    especiais para colocar aqui.
 
-Feliz aniversário, meu amor. ❤️`,
+                    Yasmin, Kay e uma pessoa
+                    muito importante ainda vão
+                    deixar suas palavras. ❤️
+                </p>
 
-        media: []
+            </div>
+        `
+    },
+
+
+    /* ======================================
+       PÁGINA 8 — FINAL
+       ====================================== */
+
+    {
+        titulo: "Para você ❤️",
+
+        subtitulo: "E esse é só o começo...",
+
+        conteudo: `
+            <div class="final">
+
+                <div class="coracao-final">
+                    ❤️
+                </div>
+
+                <h2>
+                    Feliz aniversário, Emy!
+                </h2>
+
+                <p class="mensagem">
+                    Que seus 18 anos sejam apenas
+                    o começo de uma fase incrível.
+
+                    Que você realize seus sonhos,
+                    conheça lugares novos,
+                    viva momentos inesquecíveis
+                    e continue sendo essa pessoa
+                    maravilhosa que você é.
+
+                    E lembre-se:
+
+                    você nunca estará sozinha.
+
+                    Existem pessoas que te amam,
+                    que torcem por você
+                    e que estarão ao seu lado.
+
+                    ❤️
+                </p>
+
+                <div class="ornamento">
+                    ✦ ♡ ✦
+                </div>
+
+            </div>
+        `
     }
 
 ];
 
 
-let currentPage = 0;
+/* ==========================================
+   ELEMENTOS
+   ========================================== */
+
+const paginaElemento =
+    document.getElementById("pagina");
+
+const paginaNumero =
+    document.getElementById("paginaAtual");
+
+const totalPaginas =
+    document.getElementById("totalPaginas");
+
+const indicadores =
+    document.getElementById("indicadores");
+
+const botaoAnterior =
+    document.getElementById("anterior");
+
+const botaoProxima =
+    document.getElementById("proxima");
 
 
-/* =====================================================
-   BANCO DE DADOS
-===================================================== */
+/* ==========================================
+   INICIALIZAÇÃO
+   ========================================== */
 
-let database = null;
+function iniciarLivro() {
 
+    totalPaginas.textContent =
+        paginas.length;
 
-function openDatabase() {
+    criarIndicadores();
 
-    return new Promise((resolve, reject) => {
-
-        const request =
-            indexedDB.open(
-                "LivroSurpresaMobile",
-                1
-            );
-
-
-        request.onupgradeneeded = event => {
-
-            const db =
-                event.target.result;
-
-
-            if (
-                !db.objectStoreNames.contains(
-                    "media"
-                )
-            ) {
-
-                db.createObjectStore(
-                    "media",
-                    {
-                        keyPath: "id",
-                        autoIncrement: true
-                    }
-                );
-
-            }
-
-        };
-
-
-        request.onsuccess = event => {
-
-            database =
-                event.target.result;
-
-            resolve(database);
-
-        };
-
-
-        request.onerror = () => {
-
-            reject(
-                request.error
-            );
-
-        };
-
-    });
+    mostrarPagina();
 
 }
 
 
-/* =====================================================
-   SALVAR MÍDIA
-===================================================== */
+/* ==========================================
+   ABRIR LIVRO
+   ========================================== */
 
-function saveMedia(
-    chapterId,
-    file
-) {
+function abrirLivro() {
 
-    return new Promise(
-        (resolve, reject) => {
+    const capa =
+        document.getElementById("capa");
 
-            if (!database) {
-
-                reject(
-                    new Error(
-                        "Banco de dados indisponível."
-                    )
-                );
-
-                return;
-
-            }
+    const livro =
+        document.getElementById("livro");
 
 
-            const transaction =
-                database.transaction(
-                    "media",
-                    "readwrite"
-                );
+    capa.classList.remove("ativa");
+
+    capa.style.animation =
+        "aparecer .5s reverse";
 
 
-            const store =
-                transaction.objectStore(
-                    "media"
-                );
+    setTimeout(() => {
 
+        capa.style.display =
+            "none";
 
-            const request =
-                store.add({
-
-                    chapterId,
-
-                    name:
-                        file.name,
-
-                    type:
-                        file.type,
-
-                    blob:
-                        file
-
-                });
-
-
-            request.onsuccess =
-                () => resolve(
-                    request.result
-                );
-
-
-            request.onerror =
-                () => reject(
-                    request.error
-                );
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   BUSCAR MÍDIA
-===================================================== */
-
-function getMedia(
-    chapterId
-) {
-
-    return new Promise(
-        (resolve, reject) => {
-
-            if (!database) {
-
-                resolve([]);
-
-                return;
-
-            }
-
-
-            const transaction =
-                database.transaction(
-                    "media",
-                    "readonly"
-                );
-
-
-            const store =
-                transaction.objectStore(
-                    "media"
-                );
-
-
-            const request =
-                store.getAll();
-
-
-            request.onsuccess =
-                () => {
-
-                    resolve(
-                        request.result.filter(
-                            item =>
-                                item.chapterId ===
-                                chapterId
-                        )
-                    );
-
-                };
-
-
-            request.onerror =
-                () => reject(
-                    request.error
-                );
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   SALVAR PÁGINAS
-===================================================== */
-
-function saveChapters() {
-
-    localStorage.setItem(
-        "livroSurpresaCapitulos",
-        JSON.stringify(
-            chapters
-        )
-    );
-
-}
-
-
-/* =====================================================
-   CARREGAR PÁGINAS
-===================================================== */
-
-function loadChapters() {
-
-    const saved =
-        localStorage.getItem(
-            "livroSurpresaCapitulos"
+        livro.classList.remove(
+            "escondido"
         );
 
+        iniciarLivro();
 
-    if (!saved) {
-
-        return;
-
-    }
-
-
-    try {
-
-        const parsed =
-            JSON.parse(saved);
-
-
-        if (
-            Array.isArray(parsed) &&
-            parsed.length > 0
-        ) {
-
-            chapters =
-                parsed;
-
-        }
-
-    } catch (error) {
-
-        console.log(
-            "Não foi possível carregar as páginas."
-        );
-
-    }
-
+    }, 500);
 }
 
 
-/* =====================================================
-   ESCAPAR HTML
-===================================================== */
+/* ==========================================
+   MOSTRAR PÁGINA
+   ========================================== */
 
-function escapeHTML(text) {
+function mostrarPagina() {
 
-    const div =
-        document.createElement(
-            "div"
-        );
-
-    div.textContent =
-        text || "";
-
-    return div.innerHTML;
-
-}
+    const pagina =
+        paginas[paginaAtual];
 
 
-/* =====================================================
-   FORMATAR TEXTO
-===================================================== */
+    /* Reinicia animação */
 
-function formatText(text) {
+    paginaElemento.style.animation =
+        "none";
 
-    return escapeHTML(
-        text || ""
-    )
-    .replace(
-        /\n\s*\n/g,
-        "</p><p>"
-    )
-    .replace(
-        /\n/g,
-        "<br>"
-    );
+    void paginaElemento.offsetWidth;
 
-}
+    paginaElemento.style.animation =
+        "virarPagina .7s ease";
 
 
-/* =====================================================
-   RENDERIZAR LIVRO
-===================================================== */
+    /* Título */
 
-async function renderBook(
-    direction = "normal"
-) {
+    let html = `
 
-    const chapter =
-        chapters[currentPage];
+        <h1 class="titulo-pagina">
+            ${pagina.titulo}
+        </h1>
 
+        <p class="subtitulo">
+            ${pagina.subtitulo}
+        </p>
 
-    if (!chapter) {
-
-        return;
-
-    }
+    `;
 
 
-    pageContent.innerHTML = "";
+    /* Fotos */
 
+    if (pagina.fotos) {
 
-    const media =
-        await getMedia(
-            chapter.id
-        );
+        if (pagina.fotos.length === 1) {
 
-
-    const isSpecial =
-        chapter.id === "me" ||
-        chapter.id === "final";
-
-
-    let html = "";
-
-
-    if (isSpecial) {
-
-        html += `
-
-            <div class="special-page">
-
-                <div class="special-heart">
-                    ❤️
+            html += `
+                <div class="fotos">
+                    <img
+                        class="foto-unica"
+                        src="${pagina.fotos[0]}"
+                        alt="Foto especial">
                 </div>
+            `;
 
-                <div class="chapter-label">
-                    ${escapeHTML(chapter.subtitle)}
-                </div>
+        } else {
 
-                <h2>
-                    ${escapeHTML(chapter.title)}
-                </h2>
+            html += `
+                <div class="fotos">
+            `;
 
-                <p>
-                    ${formatText(chapter.text)}
-                </p>
+            pagina.fotos.forEach(
+                (foto, index) => {
 
-            </div>
-
-        `;
-
-    } else {
-
-        html += `
-
-            <div class="chapter-label">
-                ${escapeHTML(chapter.subtitle)}
-            </div>
-
-            <h1 class="page-heading">
-                ${escapeHTML(chapter.title)}
-            </h1>
-
-            <div class="page-subtitle">
-                ${escapeHTML(chapter.subtitle)}
-            </div>
-
-            <div class="page-text">
-                <p>
-                    ${formatText(chapter.text)}
-                </p>
-            </div>
-
-        `;
-
-    }
-
-
-    if (media.length > 0) {
-
-        html += `
-            <div class="page-media">
-        `;
-
-
-        media.forEach(item => {
-
-            const url =
-                URL.createObjectURL(
-                    item.blob
-                );
-
-
-            if (
-                item.type.startsWith(
-                    "image/"
-                )
-            ) {
-
-                html += `
-
-                    <div
-                        class="book-photo"
-                        data-image="${url}"
-                    >
-
+                    html += `
                         <img
-                            src="${url}"
-                            alt="Lembrança"
-                        >
-
-                    </div>
-
-                `;
-
-            }
-
-
-            if (
-                item.type.startsWith(
-                    "video/"
-                )
-            ) {
-
-                html += `
-
-                    <div class="book-video">
-
-                        <video
-                            src="${url}"
-                            controls
-                            playsinline
-                        ></video>
-
-                    </div>
-
-                `;
-
-            }
-
-        });
-
-
-        html += `
-            </div>
-        `;
-
-    }
-
-
-    pageContent.innerHTML =
-        html;
-
-
-    pageContent
-        .querySelectorAll(
-            ".book-photo"
-        )
-        .forEach(photo => {
-
-            photo.addEventListener(
-                "click",
-                () => {
-
-                    viewerImage.src =
-                        photo.dataset.image;
-
-                    photoViewer.classList.remove(
-                        "hidden"
-                    );
-
+                            class="foto"
+                            src="${foto}"
+                            alt="Foto especial ${index + 1}">
+                    `;
                 }
             );
 
-        });
+            html += `
+                </div>
+            `;
+        }
+    }
 
 
-    updateControls();
+    /* Conteúdo */
 
+    html += pagina.conteudo;
+
+
+    /* Coloca tudo na página */
+
+    paginaElemento.innerHTML =
+        html;
+
+
+    /* Número */
+
+    paginaNumero.textContent =
+        paginaAtual + 1;
+
+
+    /* Botões */
+
+    botaoAnterior.disabled =
+        paginaAtual === 0;
+
+    botaoProxima.disabled =
+        paginaAtual === paginas.length - 1;
+
+
+    atualizarIndicadores();
+
+
+    /* Volta para o topo */
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
 
 
-/* =====================================================
-   CONTROLES
-===================================================== */
+/* ==========================================
+   PRÓXIMA PÁGINA
+   ========================================== */
 
-function updateControls() {
+function proximaPagina() {
 
-    const total =
-        chapters.length;
+    if (
+        paginaAtual <
+        paginas.length - 1
+    ) {
 
+        paginaAtual++;
 
-    pageCounter.textContent =
-        `Página ${currentPage + 1} de ${total}`;
-
-
-    previousPage.disabled =
-        currentPage === 0;
-
-
-    nextPage.disabled =
-        currentPage >=
-        total - 1;
-
-
-    renderDots();
-
+        mostrarPagina();
+    }
 }
 
 
-/* =====================================================
-   DOTS
-===================================================== */
+/* ==========================================
+   PÁGINA ANTERIOR
+   ========================================== */
 
-function renderDots() {
+function paginaAnterior() {
 
-    pageDots.innerHTML = "";
+    if (paginaAtual > 0) {
+
+        paginaAtual--;
+
+        mostrarPagina();
+    }
+}
 
 
-    chapters.forEach(
+/* ==========================================
+   INDICADORES
+   ========================================== */
+
+function criarIndicadores() {
+
+    indicadores.innerHTML = "";
+
+    paginas.forEach(
         (_, index) => {
 
-            const dot =
-                document.createElement(
-                    "span"
-                );
+            const bolinha =
+                document.createElement("div");
+
+            bolinha.className =
+                "indicador";
+
+            bolinha.addEventListener(
+                "click",
+                () => {
+
+                    paginaAtual =
+                        index;
+
+                    mostrarPagina();
+                }
+            );
+
+            indicadores.appendChild(
+                bolinha
+            );
+        }
+    );
+}
 
 
-            dot.className =
-                "page-dot";
+function atualizarIndicadores() {
 
+    const todos =
+        document.querySelectorAll(
+            ".indicador"
+        );
 
-            if (
-                index === currentPage
-            ) {
+    todos.forEach(
+        (indicador, index) => {
 
-                dot.classList.add(
-                    "active"
-                );
-
-            }
-
-
-            pageDots.appendChild(
-                dot
+            indicador.classList.toggle(
+                "ativo",
+                index === paginaAtual
             );
 
         }
     );
-
 }
 
 
-/* =====================================================
-   PRÓXIMA
-===================================================== */
+/* ==========================================
+   TECLADO DO PC
+   ========================================== */
 
-function goNext() {
+document.addEventListener(
+    "keydown",
+    (evento) => {
 
-    if (
-        currentPage >=
-        chapters.length - 1
-    ) {
+        if (evento.key === "ArrowRight") {
 
-        return;
+            proximaPagina();
 
-    }
+        }
 
+        if (evento.key === "ArrowLeft") {
 
-    currentPage++;
+            paginaAnterior();
 
-    renderBook();
-
-}
-
-
-/* =====================================================
-   ANTERIOR
-===================================================== */
-
-function goPrevious() {
-
-    if (
-        currentPage <= 0
-    ) {
-
-        return;
-
-    }
-
-
-    currentPage--;
-
-    renderBook();
-
-}
-
-
-/* =====================================================
-   ABRIR LIVRO
-===================================================== */
-
-openBook.addEventListener(
-    "click",
-    () => {
-
-        cover.classList.add(
-            "hidden"
-        );
-
-        book.classList.remove(
-            "hidden"
-        );
-
-        currentPage = 0;
-
-        renderBook();
-
+        }
     }
 );
 
 
-/* =====================================================
-   VOLTAR PARA CAPA
-===================================================== */
+/* ==========================================
+   DESLIZAR NO CELULAR
+   ========================================== */
 
-homeButton.addEventListener(
-    "click",
-    () => {
+let toqueInicialX = 0;
 
-        book.classList.add(
-            "hidden"
-        );
-
-        cover.classList.remove(
-            "hidden"
-        );
-
-    }
-);
-
-
-/* =====================================================
-   BOTÕES
-===================================================== */
-
-nextPage.addEventListener(
-    "click",
-    goNext
-);
-
-previousPage.addEventListener(
-    "click",
-    goPrevious
-);
-
-
-/* =====================================================
-   SWIPE
-===================================================== */
-
-let touchStartX = 0;
-let touchStartY = 0;
+let toqueFinalX = 0;
 
 
 document.addEventListener(
     "touchstart",
-    event => {
+    (evento) => {
 
-        if (
-            book.classList.contains(
-                "hidden"
-            )
-        ) {
-
-            return;
-
-        }
-
-
-        const touch =
-            event.changedTouches[0];
-
-
-        touchStartX =
-            touch.screenX;
-
-        touchStartY =
-            touch.screenY;
-
-    },
-    {
-        passive: true
+        toqueInicialX =
+            evento.changedTouches[0].screenX;
     }
 );
 
 
 document.addEventListener(
     "touchend",
-    event => {
+    (evento) => {
 
-        if (
-            book.classList.contains(
-                "hidden"
-            )
-        ) {
+        toqueFinalX =
+            evento.changedTouches[0].screenX;
 
-            return;
 
+        const distancia =
+            toqueFinalX -
+            toqueInicialX;
+
+
+        /* Arrastou para a esquerda */
+
+        if (distancia < -60) {
+
+            proximaPagina();
         }
 
 
-        const touch =
-            event.changedTouches[0];
+        /* Arrastou para a direita */
 
+        if (distancia > 60) {
 
-        const differenceX =
-            touch.screenX -
-            touchStartX;
-
-
-        const differenceY =
-            touch.screenY -
-            touchStartY;
-
-
-        if (
-            Math.abs(differenceX) <
-            60
-        ) {
-
-            return;
-
+            paginaAnterior();
         }
-
-
-        if (
-            Math.abs(differenceX) <
-            Math.abs(differenceY)
-        ) {
-
-            return;
-
-        }
-
-
-        if (
-            differenceX < 0
-        ) {
-
-            goNext();
-
-        } else {
-
-            goPrevious();
-
-        }
-
-    },
-    {
-        passive: true
     }
 );
-
-
-/* =====================================================
-   EDITOR
-===================================================== */
-
-editButton.addEventListener(
-    "click",
-    openEditor
-);
-
-
-closeEditor.addEventListener(
-    "click",
-    closeEditorPanel
-);
-
-
-function openEditor() {
-
-    editorPanel.classList.remove(
-        "hidden"
-    );
-
-
-    populateChapterSelect();
-
-
-    chapterSelect.value =
-        chapters[currentPage].id;
-
-
-    loadEditorPage();
-
-}
-
-
-function closeEditorPanel() {
-
-    editorPanel.classList.add(
-        "hidden"
-    );
-
-}
-
-
-/* =====================================================
-   SELECT DE PÁGINAS
-===================================================== */
-
-function populateChapterSelect() {
-
-    chapterSelect.innerHTML = "";
-
-
-    chapters.forEach(
-        (chapter, index) => {
-
-            const option =
-                document.createElement(
-                    "option"
-                );
-
-
-            option.value =
-                chapter.id;
-
-
-            option.textContent =
-                `${index + 1}. ${chapter.title}`;
-
-
-            chapterSelect.appendChild(
-                option
-            );
-
-        }
-    );
-
-}
-
-
-chapterSelect.addEventListener(
-    "change",
-    loadEditorPage
-);
-
-
-/* =====================================================
-   CARREGAR EDITOR
-===================================================== */
-
-async function loadEditorPage() {
-
-    const chapter =
-        chapters.find(
-            item =>
-                item.id ===
-                chapterSelect.value
-        );
-
-
-    if (!chapter) {
-
-        return;
-
-    }
-
-
-    titleInput.value =
-        chapter.title || "";
-
-
-    subtitleInput.value =
-        chapter.subtitle || "";
-
-
-    messageInput.value =
-        chapter.text || "";
-
-
-    await renderMediaPreview(
-        chapter.id
-    );
-
-}
-
-
-/* =====================================================
-   FOTO
-===================================================== */
-
-choosePhoto.addEventListener(
-    "click",
-    () => {
-
-        photoInput.click();
-
-    }
-);
-
-
-photoInput.addEventListener(
-    "change",
-    async event => {
-
-        const files =
-            Array.from(
-                event.target.files
-            );
-
-
-        const chapterId =
-            chapterSelect.value;
-
-
-        for (
-            const file of files
-        ) {
-
-            await saveMedia(
-                chapterId,
-                file
-            );
-
-        }
-
-
-        await renderMediaPreview(
-            chapterId
-        );
-
-
-        photoInput.value = "";
-
-    }
-);
-
-
-/* =====================================================
-   VÍDEO
-===================================================== */
-
-chooseVideo.addEventListener(
-    "click",
-    () => {
-
-        videoInput.click();
-
-    }
-);
-
-
-videoInput.addEventListener(
-    "change",
-    async event => {
-
-        const files =
-            Array.from(
-                event.target.files
-            );
-
-
-        const chapterId =
-            chapterSelect.value;
-
-
-        for (
-            const file of files
-        ) {
-
-            await saveMedia(
-                chapterId,
-                file
-            );
-
-        }
-
-
-        await renderMediaPreview(
-            chapterId
-        );
-
-
-        videoInput.value = "";
-
-    }
-);
-
-
-/* =====================================================
-   PRÉVIA
-===================================================== */
-
-async function renderMediaPreview(
-    chapterId
-) {
-
-    mediaPreview.innerHTML = "";
-
-
-    const media =
-        await getMedia(
-            chapterId
-        );
-
-
-    if (
-        media.length === 0
-    ) {
-
-        mediaPreview.innerHTML = `
-
-            <div
-                style="
-                    grid-column:1/-1;
-                    text-align:center;
-                    padding:15px;
-                    color:#716673;
-                    font-family:Arial;
-                    font-size:10px;
-                "
-            >
-                Nenhuma mídia adicionada.
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    media.forEach(item => {
-
-        const element =
-            document.createElement(
-                "div"
-            );
-
-
-        element.className =
-            "preview-item";
-
-
-        if (
-            item.type.startsWith(
-                "image/"
-            )
-        ) {
-
-            const img =
-                document.createElement(
-                    "img"
-                );
-
-
-            img.src =
-                URL.createObjectURL(
-                    item.blob
-                );
-
-
-            element.appendChild(
-                img
-            );
-
-        } else {
-
-            element.innerHTML = `
-
-                <div class="preview-video">
-                    🎥
-                </div>
-
-            `;
-
-        }
-
-
-        mediaPreview.appendChild(
-            element
-        );
-
-    });
-
-}
-
-
-/* =====================================================
-   SALVAR PÁGINA
-===================================================== */
-
-savePage.addEventListener(
-    "click",
-    async () => {
-
-        const id =
-            chapterSelect.value;
-
-
-        const chapter =
-            chapters.find(
-                item =>
-                    item.id === id
-            );
-
-
-        if (!chapter) {
-
-            return;
-
-        }
-
-
-        chapter.title =
-            titleInput.value.trim() ||
-            "Sem título";
-
-
-        chapter.subtitle =
-            subtitleInput.value.trim() ||
-            "Uma lembrança especial";
-
-
-        chapter.text =
-            messageInput.value;
-
-
-        saveChapters();
-
-
-        currentPage =
-            chapters.findIndex(
-                item =>
-                    item.id === id
-            );
-
-
-        closeEditorPanel();
-
-        await renderBook();
-
-    }
-);
-
-
-/* =====================================================
-   CRIAR NOVA PÁGINA
-===================================================== */
-
-addPage.addEventListener(
-    "click",
-    () => {
-
-        const newId =
-            "page_" +
-            Date.now();
-
-
-        const newChapter = {
-
-            id:
-                newId,
-
-            title:
-                "Nova página",
-
-            subtitle:
-                "Uma nova lembrança",
-
-            text:
-                "Escreva aqui o que quiser guardar nesta página.",
-
-            media: []
-
-        };
-
-
-        chapters.push(
-            newChapter
-        );
-
-
-        saveChapters();
-
-
-        currentPage =
-            chapters.length - 1;
-
-
-        populateChapterSelect();
-
-
-        chapterSelect.value =
-            newId;
-
-
-        loadEditorPage();
-
-
-        renderBook();
-
-    }
-);
-
-
-/* =====================================================
-   FECHAR FOTO
-===================================================== */
-
-closeViewer.addEventListener(
-    "click",
-    () => {
-
-        photoViewer.classList.add(
-            "hidden"
-        );
-
-        viewerImage.src = "";
-
-    }
-);
-
-
-photoViewer.addEventListener(
-    "click",
-    event => {
-
-        if (
-            event.target ===
-            photoViewer
-        ) {
-
-            photoViewer.classList.add(
-                "hidden"
-            );
-
-            viewerImage.src = "";
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   TECLADO
-===================================================== */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            !book.classList.contains(
-                "hidden"
-            )
-        ) {
-
-            if (
-                event.key ===
-                "ArrowRight"
-            ) {
-
-                goNext();
-
-            }
-
-
-            if (
-                event.key ===
-                "ArrowLeft"
-            ) {
-
-                goPrevious();
-
-            }
-
-        }
-
-
-        if (
-            event.key ===
-            "Escape"
-        ) {
-
-            editorPanel.classList.add(
-                "hidden"
-            );
-
-            photoViewer.classList.add(
-                "hidden"
-            );
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   INICIALIZAÇÃO
-===================================================== */
-
-async function startApp() {
-
-    loadChapters();
-
-
-    try {
-
-        await openDatabase();
-
-    } catch (error) {
-
-        console.error(
-            "IndexedDB indisponível:",
-            error
-        );
-
-    }
-
-}
-
-
-startApp();
