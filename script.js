@@ -121,17 +121,16 @@ const paginas = [
 
         conteudo: `
             <p class="mensagem">
-                Oii emy, bom n sou muito
-                Boa nas palavras ksksk
+                Oii emy, antes de td queria te desejar um Feliz aniversário, que está data possa se repetir por muitos e muitos anos✨❤️
 
-                Gatinha, feliz aniversário que o papai do céu te abençoe muito nesse seu dia, que vc continue sendo essa menino incrível que vc é❤️
+Bom, se conhecemos desde 2024, e ficamos estranhamente próximas depois de um passeio pro sesc skksk n esqueço ate hj, acho que depois daquele dia nós tornamos muito próximas, e sinceramente?
+N me arrependo disso.
 
-                Saiba que independente de qualquer situação, vc sempre será minha irmãzona e q n me arrependo de nada ate agr.
+Por mais que tenhamos opniões diferentes, jeitos de pensar diferente, as vezes com uma briguinha ou outra, porém quero que saiba q gosto muito de vc, vc é minha irmãzona ❤️✨ e independente disso, nada muda.
 
-                Vc foi a mlhr pessoa que eu pude conhecer em 2024, e sinceramente, foi o mlhr ano da minha vida por causa da sua amizade ❤️
+Adoro todos os nossos momentos juntas, mesmo que eu n consiga demostrar isso, pra mim é complicado demostrar afeto, mais tentei mostrar um lado meu para vc… que realmente ninguém nunca viu, e eu quero muito que nossa amizade possa deixar de ser algo so de escola, e ser algo para a vida tda🥹❤️✨
 
-                Obrigada por ser vc , obrigada por simplesmente existir maninha, te amoooo ❤️❤️❤️
-            </p>
+Te amo maninha, e td de bom para vcc✨✨✨
 
             <div class="video-area">
 
